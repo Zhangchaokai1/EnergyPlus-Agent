@@ -18,7 +18,7 @@ from fastapi import APIRouter, File, HTTPException, UploadFile
 from openai import OpenAI
 from pydantic import BaseModel, ConfigDict, Field
 
-ROOT = Path(__file__).resolve().parents[2]
+from backend.paths import ROOT  # noqa: E402
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 

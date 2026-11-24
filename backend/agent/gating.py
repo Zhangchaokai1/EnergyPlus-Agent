@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[3]  # 仓库根（agent 比 app.py 深一层）
+from backend.paths import ROOT  # noqa: E402
 GATE_RECALL_CSV = ROOT / "models" / "office_hc_deeponet_ensemble" / "evaluation" / "ood_gate_recall.csv"
 
 # 兜底阈值（CSV 缺失时使用）：各目标验证集 p95 in-dist σ_E

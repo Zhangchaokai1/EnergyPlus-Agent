@@ -23,7 +23,7 @@ from .attribution_direction import direction_details
 from .comparison_summary import build_comparison_summary
 from backend.training_routes import list_models
 
-ROOT = Path(__file__).resolve().parents[3]  # 仓库根 D:\pyproject\EnergyPlus\7（agent 比 app.py 深一层）
+from backend.paths import ROOT  # noqa: E402
 SHAP_CSV = ROOT / "models" / "office_shap" / "shap_importance.csv"
 
 

@@ -17,7 +17,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from scipy.stats import qmc
 
-ROOT = Path(__file__).resolve().parents[2]
+from backend.paths import ROOT  # noqa: E402
 MODEL_DIR = ROOT / "models" / "office_hc_deeponet_ensemble"
 DATASET_DIR = ROOT / "datasets"
 WEATHER_OOD_DIR = DATASET_DIR / "weather_ood"
@@ -372,6 +372,14 @@ def _load_bundle(model_dir: str | None = None):
 
 @lru_cache(maxsize=1)
 def _base_weather_features() -> pd.DataFrame:
+    if not Path(train.DATASET_PATH).exists():
+        # Public release ships no training dataset: derive the same daily
+        # features directly from the base Nanjing EPW used to build it.
+        from office_geometry import choose_weather_file
+
+        epw, _ = choose_weather_file()
+        features = build_daily_weather_features(epw)
+        return features[["day_index", "month", "day", "day_label", *DYNAMIC_COLUMNS]].reset_index(drop=True)
     frame = train.load_sequence_frame()
     base = frame[frame["sample_id"] == 2].sort_values("day_index")
     if base.empty:

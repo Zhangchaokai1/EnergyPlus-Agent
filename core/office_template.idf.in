@@ -1,0 +1,511 @@
+! High-rise office prototype (Nanjing) - parametric template
+! Forked from demo3 residential template; office gains/schedules (GB-style),
+! time-scheduled setpoints (occupied 08:00-18:00 + setback), Fanger PMV comfort.
+
+Version,25.2;
+
+Building,
+  __SCENARIO_NAME__,
+  0.0,
+  City,
+  0.04,
+  0.4,
+  FullExterior,
+  ,
+  25;
+
+Timestep,6;
+
+SurfaceConvectionAlgorithm:Inside,TARP;
+SurfaceConvectionAlgorithm:Outside,TARP;
+HeatBalanceAlgorithm,ConductionTransferFunction;
+
+ShadowCalculation,
+  PolygonClipping,
+  Periodic,
+  20;
+
+SimulationControl,
+  No,
+  No,
+  No,
+  No,
+  Yes,
+  No,
+  1;
+
+RunPeriod,
+  Full Year,
+  1,
+  1,
+  ,
+  12,
+  31,
+  ,
+  Sunday,
+  Yes,
+  Yes,
+  No,
+  Yes,
+  Yes;
+
+Site:Location,
+  __LOCATION_NAME__,
+  __LATITUDE__,
+  __LONGITUDE__,
+  __TIMEZONE__,
+  __ELEVATION__;
+
+Site:GroundTemperature:BuildingSurface,
+  18.3,18.2,18.3,18.4,20.1,22.0,22.3,22.5,22.5,20.7,18.9,18.5;
+
+Material,
+  Exterior Render,
+  MediumSmooth,
+  0.008,
+  0.70,
+  1600,
+  840,
+  0.90,
+  0.65,
+  0.65;
+
+Material,
+  Cement Mortar,
+  MediumRough,
+  0.012,
+  0.93,
+  1800,
+  840,
+  0.90,
+  0.60,
+  0.60;
+
+Material,
+  Clay Brick,
+  MediumRough,
+  0.240,
+  0.81,
+  1700,
+  840,
+  0.90,
+  0.60,
+  0.60;
+
+Material,
+  Interior Plaster,
+  Smooth,
+  0.020,
+  0.70,
+  1400,
+  840,
+  0.90,
+  0.60,
+  0.60;
+
+Material,
+  EPS Insulation,
+  Rough,
+  __WALL_INSULATION_M__,
+  0.041,
+  18,
+  1400,
+  0.90,
+  0.50,
+  0.50;
+
+Material,
+  Roof Mortar,
+  MediumRough,
+  0.020,
+  0.93,
+  1800,
+  840,
+  0.90,
+  0.65,
+  0.65;
+
+Material,
+  Reinforced Concrete,
+  MediumRough,
+  0.100,
+  1.95,
+  2300,
+  880,
+  0.90,
+  0.65,
+  0.65;
+
+Material,
+  Ceiling Plaster,
+  Smooth,
+  0.010,
+  0.70,
+  1400,
+  840,
+  0.90,
+  0.60,
+  0.60;
+
+Material,
+  XPS Insulation,
+  Rough,
+  __ROOF_INSULATION_M__,
+  0.030,
+  35,
+  1450,
+  0.90,
+  0.50,
+  0.50;
+
+Material,
+  Ground Slab,
+  MediumRough,
+  0.150,
+  1.73,
+  2243,
+  837,
+  0.90,
+  0.65,
+  0.65;
+
+Material,
+  Interior Brick Partition,
+  MediumRough,
+  0.120,
+  0.72,
+  1500,
+  840,
+  0.90,
+  0.50,
+  0.50;
+
+Construction,
+  Exterior Wall,
+  EPS Insulation,
+  Exterior Render,
+  Cement Mortar,
+  Clay Brick,
+  Interior Plaster;
+
+Construction,
+  Roof,
+  XPS Insulation,
+  Roof Mortar,
+  Reinforced Concrete,
+  Ceiling Plaster;
+
+Construction,
+  Ground Floor,
+  Ground Slab;
+
+Construction,
+  Interior Partition,
+  Interior Plaster,
+  Interior Brick Partition,
+  Interior Plaster;
+
+Construction,
+  Interior Slab,
+  Ceiling Plaster,
+  Reinforced Concrete,
+  Ceiling Plaster;
+
+WindowMaterial:SimpleGlazingSystem,
+  Exterior Window System,
+  __WINDOW_U__,
+  __WINDOW_SHGC__,
+  0.70;
+
+Construction,
+  Exterior Window,
+  Exterior Window System;
+
+GlobalGeometryRules,
+  UpperLeftCorner,
+  Counterclockwise,
+  World;
+
+__ZONE_BLOCK__
+
+__SURFACE_BLOCK__
+
+__FENESTRATION_BLOCK__
+
+ScheduleTypeLimits,
+  Fraction,
+  0.0,
+  1.0,
+  Continuous;
+
+ScheduleTypeLimits,
+  Temperature,
+  -20,
+  50,
+  Continuous;
+
+ScheduleTypeLimits,
+  Control Type,
+  0,
+  4,
+  Discrete;
+
+ScheduleTypeLimits,
+  Activity Level,
+  0,
+  1000,
+  Continuous;
+
+ScheduleTypeLimits,
+  Any Number;
+
+Schedule:Compact,
+  Always On,
+  Fraction,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,1.0;
+
+Schedule:Compact,
+  Office Occupancy,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,0.0,
+  Until: 18:00,0.95,
+  Until: 24:00,0.0,
+  For: Saturday Sunday Holidays AllOtherDays,
+  Until: 24:00,0.0;
+
+Schedule:Compact,
+  Office Lights Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,0.05,
+  Until: 18:00,0.90,
+  Until: 24:00,0.10,
+  For: Saturday Sunday Holidays AllOtherDays,
+  Until: 24:00,0.05;
+
+Schedule:Compact,
+  Office Equipment Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,0.30,
+  Until: 18:00,0.90,
+  Until: 24:00,0.35,
+  For: Saturday Sunday Holidays AllOtherDays,
+  Until: 24:00,0.30;
+
+Schedule:Compact,
+  Heating Setpoint,
+  Temperature,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,12.0,
+  Until: 18:00,__HEATING_SETPOINT__,
+  Until: 24:00,12.0,
+  For: Saturday Sunday Holidays AllOtherDays,
+  Until: 24:00,12.0;
+
+Schedule:Compact,
+  Cooling Setpoint,
+  Temperature,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 08:00,40.0,
+  Until: 18:00,__COOLING_SETPOINT__,
+  Until: 24:00,40.0,
+  For: Saturday Sunday Holidays AllOtherDays,
+  Until: 24:00,40.0;
+
+Schedule:Compact,
+  Thermostat Control Type,
+  Control Type,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,4;
+
+Schedule:Compact,
+  Activity Schedule,
+  Activity Level,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,120;
+
+Schedule:Compact,
+  Work Eff Schedule,
+  Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,0.0;
+
+Schedule:Compact,
+  Air Velocity Schedule,
+  Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,0.15;
+
+Schedule:Compact,
+  Clothing Schedule,
+  Any Number,
+  Through: 3/31,
+  For: AllDays,
+  Until: 24:00,1.00,
+  Through: 5/31,
+  For: AllDays,
+  Until: 24:00,0.75,
+  Through: 9/30,
+  For: AllDays,
+  Until: 24:00,0.50,
+  Through: 11/30,
+  For: AllDays,
+  Until: 24:00,0.75,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00,1.00;
+
+__ZONE_LIST_BLOCK__
+
+People,
+  Office People,
+  OFFICE_ZONES,
+  Office Occupancy,
+  People/Area,
+  ,
+  0.100,
+  ,
+  0.30,
+  autocalculate,
+  Activity Schedule,
+  3.82E-8,
+  No,
+  ,
+  ,
+  Work Eff Schedule,
+  ClothingInsulationSchedule,
+  ,
+  Clothing Schedule,
+  Air Velocity Schedule,
+  Fanger;
+
+Lights,
+  Office Lights,
+  OFFICE_ZONES,
+  Office Lights Schedule,
+  Watts/Area,
+  ,
+  9.0,
+  ,
+  0.0,
+  0.60,
+  0.20,
+  1.0,
+  General,
+  No;
+
+ElectricEquipment,
+  Office Equipment,
+  OFFICE_ZONES,
+  Office Equipment Schedule,
+  Watts/Area,
+  ,
+  15.0,
+  ,
+  0.0,
+  0.30,
+  0.0;
+
+ZoneInfiltration:DesignFlowRate,
+  Office Infiltration,
+  OFFICE_ZONES,
+  Always On,
+  AirChanges/Hour,
+  ,
+  ,
+  ,
+  __INFILTRATION_ACH__,
+  1.0,
+  0.0,
+  0.0,
+  0.0;
+
+__HVAC_BLOCK__
+
+ZoneControl:Thermostat,
+  Office Thermostat,
+  OFFICE_ZONES,
+  Thermostat Control Type,
+  ThermostatSetpoint:DualSetpoint,
+  Office Dual Setpoint;
+
+ThermostatSetpoint:DualSetpoint,
+  Office Dual Setpoint,
+  Heating Setpoint,
+  Cooling Setpoint;
+
+OutputControl:Table:Style,
+  HTML;
+
+Output:Table:SummaryReports,
+  AnnualBuildingUtilityPerformanceSummary,
+  EnvelopeSummary;
+
+Output:SQLite,
+  Simple;
+
+! Total ideal-loads heating/cooling (sensible + latent) aggregated across all zones.
+! Cooling:EnergyTransfer alone is sensible-only; in humid Nanjing the latent
+! (dehumidification) load is ~25% of cooling, so we meter the supply-air TOTAL.
+Meter:Custom,
+  IdealTotalHeating,
+  Generic,
+  *,
+  Zone Ideal Loads Supply Air Total Heating Energy;
+
+Meter:Custom,
+  IdealTotalCooling,
+  Generic,
+  *,
+  Zone Ideal Loads Supply Air Total Cooling Energy;
+
+Output:Meter,
+  Electricity:Facility,
+  Daily;
+
+Output:Meter,
+  InteriorLights:Electricity,
+  Daily;
+
+Output:Meter,
+  InteriorEquipment:Electricity,
+  Daily;
+
+Output:Meter,
+  Heating:EnergyTransfer,
+  Daily;
+
+Output:Meter,
+  Cooling:EnergyTransfer,
+  Daily;
+
+Output:Meter,
+  IdealTotalHeating,
+  Daily;
+
+Output:Meter,
+  IdealTotalCooling,
+  Daily;
+
+Output:Variable,
+  *,
+  Zone Thermal Comfort Fanger Model PMV,
+  Hourly;
+
+Output:Variable,
+  *,
+  Zone People Occupant Count,
+  Hourly;

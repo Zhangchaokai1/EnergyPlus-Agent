@@ -13,7 +13,7 @@ from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, ConfigDict
 
-ROOT = Path(__file__).resolve().parents[2]
+from backend.paths import ROOT  # noqa: E402
 REPORT_DIR = Path(__file__).resolve().parent / "generated_reports"
 CHART_DIR = REPORT_DIR / "charts"
 FONT_CANDIDATES = [

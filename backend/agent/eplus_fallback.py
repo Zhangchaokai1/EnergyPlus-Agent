@@ -15,7 +15,7 @@ import threading
 from functools import lru_cache
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[3]  # 仓库根（agent 比 app.py 深一层）
+from backend.paths import ROOT  # noqa: E402
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
