@@ -13,7 +13,7 @@
 ## 核心理念：RAG → PAG + 不确定性门控
 
 - **PAG（Physics-Augmented Generation，物理增强生成）**：把大模型的"增强源"从"检索一段文本/一张表"升级为"调用物理引擎"——数据驱动代理 + 高保真仿真器，把数值推理从 LLM 手里接管过来，抑制数值幻觉。
-- **不确定性门控**：代理是 HC-DeepONet 5 成员深度集成，输出能耗预测均值 **μ_E** 与集成分歧 **σ_E**。
+- **不确定性门控**：代理是 CHU-DeepONet 5 成员深度集成，输出能耗预测均值 **μ_E** 与集成分歧 **σ_E**。
   - σ_E 低（训练分布内）→ 直接采用代理结果，毫秒级；
   - σ_E 高（外推 / 极端工况，如异常气候、超范围围护参数）→ 回退**参数化 EnergyPlus 仿真**复核，数十秒级、权威。
 - 分工：**LLM** 负责听懂人话、规划、解释、权衡；**物理代理 / 仿真**负责算得准。
@@ -60,7 +60,7 @@
                                                           · report_routes         PDF 报告生成
                                                           · training_routes       训练工作台 + 模型库
                           路径共享 ▼
-                core/models（HC-DeepONet 集成）、core/weather —— 运行根目录见 backend/paths.py
+                core/models（CHU-DeepONet 集成）、core/weather —— 运行根目录见 backend/paths.py
 ```
 
 - **Provider 抽象**：默认 DeepSeek（`deepseek-chat`，OpenAI 兼容），可一键切阿里百炼(DashScope) / OpenAI / 其它兼容端点，调用方无需改动（见 `backend/agent/config.py`）。
@@ -85,7 +85,7 @@
 ## 目录结构
 
 ```
-EnergyPlus-Agent/
+PAG-LLM/
 ├─ backend/
 │  ├─ app.py                 # FastAPI 主应用（展示端点）+ 三个 router（agent/report/training）
 │  ├─ report_routes.py       # /api/reports/* —— PDF 报告生成
@@ -108,7 +108,7 @@ EnergyPlus-Agent/
 │     ├─ TrainingPage.jsx    # 训练工作台
 │     ├─ agent.css / styles.css / training.css
 │     └─ api/client.js       # SSE 解析
-├─ core/                     # 仿真/训练核心模块（几何、IDF 模板、采样、HC-DeepONet 训练）；
+├─ core/                     # 仿真/训练核心模块（几何、IDF 模板、采样、CHU-DeepONet 训练）；
 │                            #   Release 资产解压于此：models/、weather/、datasets/weather_ood/
 ├─ qa_benchmark/             # 问答基准：题集、runners、结果（见上）
 ├─ scripts/
@@ -121,22 +121,24 @@ EnergyPlus-Agent/
 
 ## 预训练模型与气象文件
 
-运行所需资产发布在 [Release v1.0.0](https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/tag/v1.0.0)，两个压缩包都解压到 `core/`：
+运行所需资产发布在 [Release v1.0.0](https://github.com/Zhangchaokai1/PAG-LLM/releases/tag/v1.0.0)，压缩包均解压到 `core/`：
 
 | 资产 | 内容 |
 | --- | --- |
-| `energyplus-agent-models-v1.0.0.zip`（约 8.7 MB） | 训练好的 5 成员 HC-DeepONet 集成（权重、scaler）、σ_E 门控阈值、运行时 SHAP 表 |
+| `energyplus-agent-models-v1.0.0.zip`（约 8.7 MB） | 训练好的 5 成员 CHU-DeepONet 集成（权重、scaler）、σ_E 门控阈值、运行时 SHAP 表 |
 | `energyplus-agent-weather-v1.0.0.zip`（约 1.1 MB） | 南京 TMYx 基准 EPW + 异常年 EPW（`anom_warm` / `anom_cold` / `anom_balanced`） |
+| `energyplus-agent-dataset-v1.0.0.zip`（约 51 MB，可选） | 完整 EnergyPlus 仿真数据集（1024 个设计 × 365 天、OOD 样本、气候 OOD 真值）；运行智能体不需要，仅重训或复现评估时使用（CC BY 4.0） |
 
 ```bash
-cd EnergyPlus-Agent/core
-curl -LO https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/download/v1.0.0/energyplus-agent-models-v1.0.0.zip
-curl -LO https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/download/v1.0.0/energyplus-agent-weather-v1.0.0.zip
+git clone https://github.com/Zhangchaokai1/PAG-LLM.git
+cd PAG-LLM/core
+curl -LO https://github.com/Zhangchaokai1/PAG-LLM/releases/download/v1.0.0/energyplus-agent-models-v1.0.0.zip
+curl -LO https://github.com/Zhangchaokai1/PAG-LLM/releases/download/v1.0.0/energyplus-agent-weather-v1.0.0.zip
 unzip energyplus-agent-models-v1.0.0.zip && unzip -o energyplus-agent-weather-v1.0.0.zip
 sha256sum -c SHA256SUMS
 ```
 
-训练/仿真数据集体积较大，不随仓库发布；基准逐日气候特征在启动时由 EPW 直接计算。训练新模型与 EnergyPlus 回退仿真需本机安装 EnergyPlus。
+运行智能体不需要数据集：基准逐日气候特征在启动时由 EPW 直接计算。如需重训，把数据集压缩包也解压到 `core/`。训练新模型与 EnergyPlus 回退仿真需本机安装 EnergyPlus。
 
 ## 环境配置
 
@@ -164,7 +166,7 @@ VITE_API_BASE=http://127.0.0.1:8010
 推荐直接使用启动脚本（智能体后端 **8010**，前端 **5173**，缺失依赖时自动 `npm install`）：
 
 ```powershell
-cd EnergyPlus-Agent
+cd PAG-LLM
 .\scripts\start.ps1
 ```
 
@@ -172,11 +174,11 @@ cd EnergyPlus-Agent
 
 ```powershell
 # 终端一：后端（建议不加 --reload，Windows 下 --reload 退出易残留占端口）
-cd EnergyPlus-Agent
+cd PAG-LLM
 python -m uvicorn backend.app:app --host 127.0.0.1 --port 8010
 
 # 终端二：前端
-cd EnergyPlus-Agent\frontend
+cd PAG-LLMrontend
 npm install
 npm run dev        # http://127.0.0.1:5173
 ```
@@ -188,7 +190,7 @@ npm run dev        # http://127.0.0.1:5173
 ## 打包前端
 
 ```powershell
-cd EnergyPlus-Agent\frontend
+cd PAG-LLMrontend
 npm run build      # 产物在 frontend/dist
 ```
 

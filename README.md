@@ -13,7 +13,7 @@ A physics-simulation-augmented LLM agent that turns expert-grade, high-fidelity 
 ## Core Idea: RAG → PAG + Uncertainty Gating
 
 - **PAG (Physics-Augmented Generation)** upgrades the LLM's augmentation source from "retrieve a text snippet / a table" to "call a physics engine": a data-driven surrogate plus a high-fidelity simulator take numerical reasoning out of the LLM's hands, suppressing numerical hallucination.
-- **Uncertainty gating**: the surrogate is a 5-member deep ensemble of HC-DeepONet that outputs a predicted energy mean **μ_E** and an ensemble disagreement **σ_E**:
+- **Uncertainty gating**: the surrogate is a 5-member deep ensemble of CHU-DeepONet that outputs a predicted energy mean **μ_E** and an ensemble disagreement **σ_E**:
   - low **σ_E** (within the training distribution) → trust the surrogate directly, millisecond-scale;
   - high **σ_E** (extrapolation / extreme conditions such as anomalous climate or out-of-range envelope parameters) → fall back to a **parameterized EnergyPlus** simulation for authoritative verification, tens-of-seconds scale.
 - Division of labor: the **LLM** understands the question, plans, explains and weighs trade-offs; the **physics surrogate / simulator** is responsible for getting the numbers right.
@@ -54,7 +54,7 @@ Frontend React + Vite ── POST /api/agent/chat (SSE streaming) ──► Fast
                                                        · report_routes         PDF report generation
                                                        · training_routes       training workbench + model library
                                path sharing ▼
-                  core/models (HC-DeepONet ensemble), core/weather — runtime root, see backend/paths.py
+                  core/models (CHU-DeepONet ensemble), core/weather — runtime root, see backend/paths.py
 ```
 
 - **Provider abstraction**: DeepSeek by default (`deepseek-chat`, OpenAI-compatible); switch to Alibaba DashScope / OpenAI / any OpenAI-compatible endpoint without touching callers (see `backend/agent/config.py`).
@@ -75,7 +75,7 @@ A reproducible benchmark that measures how much physics augmentation reduces num
 ## Directory Structure
 
 ```
-EnergyPlus-Agent/
+PAG-LLM/
 ├─ backend/
 │  ├─ app.py                 # FastAPI main app (display endpoints) + routers (agent/report/training)
 │  ├─ report_routes.py       # /api/reports/* — PDF report generation
@@ -98,7 +98,7 @@ EnergyPlus-Agent/
 │     ├─ TrainingPage.jsx    # training workbench
 │     ├─ agent.css / styles.css / training.css
 │     └─ api/client.js       # SSE parsing
-├─ core/                     # simulation / training modules (geometry, IDF template, sampling, HC-DeepONet training);
+├─ core/                     # simulation / training modules (geometry, IDF template, sampling, CHU-DeepONet training);
 │                            #   release assets unzip here: models/, weather/, datasets/weather_ood/
 ├─ qa_benchmark/             # QA benchmark: questions, runners, results (see above)
 ├─ scripts/
@@ -109,22 +109,24 @@ EnergyPlus-Agent/
 
 ## Pretrained Models & Weather Files
 
-The runtime assets are published on the [v1.0.0 release](https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/tag/v1.0.0); unzip both into `core/`:
+The runtime assets are published on the [v1.0.0 release](https://github.com/Zhangchaokai1/PAG-LLM/releases/tag/v1.0.0); unzip them into `core/`:
 
 | Asset | Contents |
 | --- | --- |
-| `energyplus-agent-models-v1.0.0.zip` (~8.7 MB) | trained 5-member HC-DeepONet ensemble (weights, scalers), σ_E gating thresholds, runtime SHAP table |
+| `energyplus-agent-models-v1.0.0.zip` (~8.7 MB) | trained 5-member CHU-DeepONet ensemble (weights, scalers), σ_E gating thresholds, runtime SHAP table |
 | `energyplus-agent-weather-v1.0.0.zip` (~1.1 MB) | base Nanjing TMYx EPW + anomalous-year EPWs (`anom_warm` / `anom_cold` / `anom_balanced`) |
+| `energyplus-agent-dataset-v1.0.0.zip` (~51 MB, optional) | full EnergyPlus simulation dataset (1,024 designs × 365 days, OOD samples, weather-OOD truth); not needed to run the agent, required only to retrain or reproduce the evaluation (CC BY 4.0) |
 
 ```bash
-cd EnergyPlus-Agent/core
-curl -LO https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/download/v1.0.0/energyplus-agent-models-v1.0.0.zip
-curl -LO https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/download/v1.0.0/energyplus-agent-weather-v1.0.0.zip
+git clone https://github.com/Zhangchaokai1/PAG-LLM.git
+cd PAG-LLM/core
+curl -LO https://github.com/Zhangchaokai1/PAG-LLM/releases/download/v1.0.0/energyplus-agent-models-v1.0.0.zip
+curl -LO https://github.com/Zhangchaokai1/PAG-LLM/releases/download/v1.0.0/energyplus-agent-weather-v1.0.0.zip
 unzip energyplus-agent-models-v1.0.0.zip && unzip -o energyplus-agent-weather-v1.0.0.zip
 sha256sum -c SHA256SUMS
 ```
 
-Training/simulation datasets are not distributed (too large); the base daily climate features are computed from the EPW at startup. Model training and the EnergyPlus fallback need a local EnergyPlus installation.
+The agent itself does not need the dataset: the base daily climate features are computed from the EPW at startup. To retrain, unzip the dataset archive into `core/` as well. Model training and the EnergyPlus fallback need a local EnergyPlus installation.
 
 ## Configuration
 
@@ -150,7 +152,7 @@ Keep it in sync with the backend port and restart `npm run dev` after changes.
 One-click start script (agent backend on **8010**, frontend on **5173**, runs `npm install` automatically if needed):
 
 ```powershell
-cd EnergyPlus-Agent
+cd PAG-LLM
 .\scripts\start.ps1
 ```
 
@@ -158,11 +160,11 @@ Or manually in two terminals:
 
 ```powershell
 # Terminal 1 — backend (avoid --reload on Windows: its exit can leave the port occupied)
-cd EnergyPlus-Agent
+cd PAG-LLM
 python -m uvicorn backend.app:app --host 127.0.0.1 --port 8010
 
 # Terminal 2 — frontend
-cd EnergyPlus-Agent\frontend
+cd PAG-LLMrontend
 npm install
 npm run dev        # http://127.0.0.1:5173
 ```
@@ -174,7 +176,7 @@ npm run dev        # http://127.0.0.1:5173
 ## Build the Frontend
 
 ```powershell
-cd EnergyPlus-Agent\frontend
+cd PAG-LLMrontend
 npm run build      # output in frontend/dist
 ```
 
