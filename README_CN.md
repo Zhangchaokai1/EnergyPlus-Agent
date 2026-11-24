@@ -60,7 +60,7 @@
                                                           · report_routes         PDF 报告生成
                                                           · training_routes       训练工作台 + 模型库
                           路径共享 ▼
-                ../models（HC-DeepONet 集成）、../datasets —— 与仓库根共享，无需复制
+                core/models（HC-DeepONet 集成）、core/weather —— 运行根目录见 backend/paths.py
 ```
 
 - **Provider 抽象**：默认 DeepSeek（`deepseek-chat`，OpenAI 兼容），可一键切阿里百炼(DashScope) / OpenAI / 其它兼容端点，调用方无需改动（见 `backend/agent/config.py`）。
@@ -108,6 +108,8 @@ EnergyPlus-Agent/
 │     ├─ TrainingPage.jsx    # 训练工作台
 │     ├─ agent.css / styles.css / training.css
 │     └─ api/client.js       # SSE 解析
+├─ core/                     # 仿真/训练核心模块（几何、IDF 模板、采样、HC-DeepONet 训练）；
+│                            #   Release 资产解压于此：models/、weather/、datasets/weather_ood/
 ├─ qa_benchmark/             # 问答基准：题集、runners、结果（见上）
 ├─ scripts/
 │  └─ start.ps1              # 一键启动（后端 :8010 + 前端 :5173）
@@ -117,18 +119,24 @@ EnergyPlus-Agent/
 
 ---
 
-## 预训练模型
+## 预训练模型与气象文件
 
-训练好的 5 成员 HC-DeepONet 集成模型（权重、scaler、门控阈值及运行时用到的 SHAP 表）已发布在 Release：[v1.0.0](https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/tag/v1.0.0) → `energyplus-agent-models-v1.0.0.zip`（约 8.7 MB）。
+运行所需资产发布在 [Release v1.0.0](https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/tag/v1.0.0)，两个压缩包都解压到 `core/`：
+
+| 资产 | 内容 |
+| --- | --- |
+| `energyplus-agent-models-v1.0.0.zip`（约 8.7 MB） | 训练好的 5 成员 HC-DeepONet 集成（权重、scaler）、σ_E 门控阈值、运行时 SHAP 表 |
+| `energyplus-agent-weather-v1.0.0.zip`（约 1.1 MB） | 南京 TMYx 基准 EPW + 异常年 EPW（`anom_warm` / `anom_cold` / `anom_balanced`） |
 
 ```bash
-# 在 EnergyPlus-Agent/ 的上一级目录执行
+cd EnergyPlus-Agent/core
 curl -LO https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/download/v1.0.0/energyplus-agent-models-v1.0.0.zip
-unzip energyplus-agent-models-v1.0.0.zip   # 解压出与 EnergyPlus-Agent/ 同级的 models/
+curl -LO https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/download/v1.0.0/energyplus-agent-weather-v1.0.0.zip
+unzip energyplus-agent-models-v1.0.0.zip && unzip -o energyplus-agent-weather-v1.0.0.zip
 sha256sum -c SHA256SUMS
 ```
 
-训练/仿真数据集体积较大，不随仓库发布。
+训练/仿真数据集体积较大，不随仓库发布；基准逐日气候特征在启动时由 EPW 直接计算。训练新模型与 EnergyPlus 回退仿真需本机安装 EnergyPlus。
 
 ## 环境配置
 
@@ -188,11 +196,11 @@ npm run build      # 产物在 frontend/dist
 
 ## 前置依赖与说明
 
-- **共享父仓库资产**：后端 `app.py` 的 `ROOT` 解析到仓库根，直接读取 `../models/office_hc_deeponet_ensemble`（代理模型 + scaler）与 `../datasets`，**无需把 221MB 模型/数据复制进本目录**。后端还会从上一级目录导入若干 Python 模块（`office_geometry.py`、`building_project.py` 等），请保持本目录与 `models/`、`datasets/` 及根目录 `.py` 文件同级。
+- **运行根目录**：由 `backend/paths.py` 决定模型、气象文件与核心模块的位置——优先环境变量 `PAG_RUNTIME_ROOT`；否则若上一级目录已包含核心模块（研究工作区布局）则用上一级；否则使用仓库自带的 `core/`（新 clone 的默认情况）。
 - **回退仿真需要 EnergyPlus**：`run_energyplus_simulation` 会调用真实 EnergyPlus（默认二进制 `D:\Program Files\EnergyPlusV25-2-0`，南京 EPW，75 区办公楼全年模拟，约 70–80 s）。未安装 EnergyPlus 时其余代理功能仍可用，仅高保真回退不可用。
 - **模型口径**：输入 10 维静态建筑/系统变量 + 20 维逐日气候特征；输出日冷负荷 / 日热负荷 / 日人员加权等效不舒适小时（`|PMV|>1.5`）。供冷设定点 `[24,28] °C`，供暖设定点 `[16,20] °C`。对象为南京一栋约 19440 m² 的高层办公原型。
 - **Python 依赖**：见 `backend/requirements.txt`（fastapi / uvicorn / torch / numpy / pandas / scipy / scikit-learn / joblib / openai / python-multipart / matplotlib / reportlab）。
-- **门控阈值**：取自验证集 σ_E 分布 p95（`../models/office_hc_deeponet_ensemble/evaluation/ood_gate_recall.csv`）；该阈值下 OOD 召回 100%、分布内误报约 5.2%。
+- **门控阈值**：取自验证集 σ_E 分布 p95（`core/models/office_hc_deeponet_ensemble/evaluation/ood_gate_recall.csv`）；该阈值下 OOD 召回 100%、分布内误报约 5.2%。
 
 ## 许可证
 

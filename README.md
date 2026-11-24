@@ -54,7 +54,7 @@ Frontend React + Vite ── POST /api/agent/chat (SSE streaming) ──► Fast
                                                        · report_routes         PDF report generation
                                                        · training_routes       training workbench + model library
                                path sharing ▼
-                  ../models (HC-DeepONet ensemble), ../datasets — shared with the parent folder, no copying needed
+                  core/models (HC-DeepONet ensemble), core/weather — runtime root, see backend/paths.py
 ```
 
 - **Provider abstraction**: DeepSeek by default (`deepseek-chat`, OpenAI-compatible); switch to Alibaba DashScope / OpenAI / any OpenAI-compatible endpoint without touching callers (see `backend/agent/config.py`).
@@ -98,6 +98,8 @@ EnergyPlus-Agent/
 │     ├─ TrainingPage.jsx    # training workbench
 │     ├─ agent.css / styles.css / training.css
 │     └─ api/client.js       # SSE parsing
+├─ core/                     # simulation / training modules (geometry, IDF template, sampling, HC-DeepONet training);
+│                            #   release assets unzip here: models/, weather/, datasets/weather_ood/
 ├─ qa_benchmark/             # QA benchmark: questions, runners, results (see above)
 ├─ scripts/
 │  └─ start.ps1              # one-click start (backend :8010 + frontend :5173)
@@ -105,18 +107,24 @@ EnergyPlus-Agent/
 └─ Frame_zh.png               # Chinese framework diagram
 ```
 
-## Pretrained Models
+## Pretrained Models & Weather Files
 
-The trained 5-member HC-DeepONet ensemble (weights, scalers, gating thresholds and the SHAP table used at runtime) is published as a release asset: [v1.0.0](https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/tag/v1.0.0) → `energyplus-agent-models-v1.0.0.zip` (~8.7 MB).
+The runtime assets are published on the [v1.0.0 release](https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/tag/v1.0.0); unzip both into `core/`:
+
+| Asset | Contents |
+| --- | --- |
+| `energyplus-agent-models-v1.0.0.zip` (~8.7 MB) | trained 5-member HC-DeepONet ensemble (weights, scalers), σ_E gating thresholds, runtime SHAP table |
+| `energyplus-agent-weather-v1.0.0.zip` (~1.1 MB) | base Nanjing TMYx EPW + anomalous-year EPWs (`anom_warm` / `anom_cold` / `anom_balanced`) |
 
 ```bash
-# run in the parent folder of EnergyPlus-Agent/
+cd EnergyPlus-Agent/core
 curl -LO https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/download/v1.0.0/energyplus-agent-models-v1.0.0.zip
-unzip energyplus-agent-models-v1.0.0.zip   # creates models/ next to EnergyPlus-Agent/
+curl -LO https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/download/v1.0.0/energyplus-agent-weather-v1.0.0.zip
+unzip energyplus-agent-models-v1.0.0.zip && unzip -o energyplus-agent-weather-v1.0.0.zip
 sha256sum -c SHA256SUMS
 ```
 
-Training/simulation datasets are not distributed (too large).
+Training/simulation datasets are not distributed (too large); the base daily climate features are computed from the EPW at startup. Model training and the EnergyPlus fallback need a local EnergyPlus installation.
 
 ## Configuration
 
@@ -172,11 +180,11 @@ npm run build      # output in frontend/dist
 
 ## Prerequisites & Notes
 
-- **Shared parent-folder assets**: `app.py` resolves `ROOT` to the parent folder and reads `../models/office_hc_deeponet_ensemble` (surrogate + scaler) and `../datasets` directly — the ~221 MB models/data do **not** need to be copied into this folder. The backend also imports a few Python modules from the parent folder (`office_geometry.py`, `building_project.py`, …), so keep this folder next to `models/`, `datasets/` and the root-level `.py` files.
+- **Runtime root**: `backend/paths.py` resolves where models, weather files and the core modules live — `PAG_RUNTIME_ROOT` if set; otherwise the parent folder when it already contains the core modules (research-workspace layout); otherwise the bundled `core/` folder (default for a fresh clone).
 - **Fallback simulation requires EnergyPlus**: `run_energyplus_simulation` runs a real EnergyPlus job (default binary `D:\Program Files\EnergyPlusV25-2-0`, Nanjing EPW, 75-zone annual run, ~70–80 s). Without EnergyPlus installed, every surrogate-based feature still works; only the high-fidelity fallback is unavailable.
 - **Model scope**: 10 static building/system inputs + 20 daily climate features → daily cooling load / heating load / occupant-weighted equivalent discomfort hours (`|PMV| > 1.5`). Cooling setpoint range [24, 28] °C; heating [16, 20] °C. Prototype: a ~19,440 m² high-rise office in Nanjing.
 - **Python dependencies**: see `backend/requirements.txt` (fastapi / uvicorn / torch / numpy / pandas / scipy / scikit-learn / joblib / openai / python-multipart / matplotlib / reportlab).
-- **Gating threshold**: p95 of the validation-set σ_E distribution (`../models/office_hc_deeponet_ensemble/evaluation/ood_gate_recall.csv`); at this threshold OOD recall is 100% with ~5.2% in-distribution false alarms.
+- **Gating threshold**: p95 of the validation-set σ_E distribution (`core/models/office_hc_deeponet_ensemble/evaluation/ood_gate_recall.csv`); at this threshold OOD recall is 100% with ~5.2% in-distribution false alarms.
 
 ## License
 
