@@ -1,4 +1,4 @@
-# EnergyPlus-Agent · Physics-Augmented Agent for Building Energy Decisions
+# Physics-Augmented Generation (PAG): An Agent Framework for Building Energy Simulation via Collaboration between LLMs and Operator Surrogates
 
 [English](README.md) | [中文文档](README_CN.md)
 
@@ -104,6 +104,19 @@ EnergyPlus-Agent/
 ├─ Frame.png                 # English framework diagram
 └─ Frame_zh.png               # Chinese framework diagram
 ```
+
+## Pretrained Models
+
+The trained 5-member HC-DeepONet ensemble (weights, scalers, gating thresholds and the SHAP table used at runtime) is published as a release asset: [v1.0.0](https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/tag/v1.0.0) → `energyplus-agent-models-v1.0.0.zip` (~8.7 MB).
+
+```bash
+# run in the parent folder of EnergyPlus-Agent/
+curl -LO https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/download/v1.0.0/energyplus-agent-models-v1.0.0.zip
+unzip energyplus-agent-models-v1.0.0.zip   # creates models/ next to EnergyPlus-Agent/
+sha256sum -c SHA256SUMS
+```
+
+Training/simulation datasets are not distributed (too large).
 
 ## Configuration
 

@@ -1,4 +1,4 @@
-# EnergyPlus-Agent · 物理增强的建筑能耗决策智能体
+# 物理增强生成式（PAG）：大模型与算子代理协同的建筑能耗仿真智能体框架
 
 [English](README.md) | [中文文档](README_CN.md)
 
@@ -116,6 +116,19 @@ EnergyPlus-Agent/
 ```
 
 ---
+
+## 预训练模型
+
+训练好的 5 成员 HC-DeepONet 集成模型（权重、scaler、门控阈值及运行时用到的 SHAP 表）已发布在 Release：[v1.0.0](https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/tag/v1.0.0) → `energyplus-agent-models-v1.0.0.zip`（约 8.7 MB）。
+
+```bash
+# 在 EnergyPlus-Agent/ 的上一级目录执行
+curl -LO https://github.com/Zhangchaokai1/EnergyPlus-Agent/releases/download/v1.0.0/energyplus-agent-models-v1.0.0.zip
+unzip energyplus-agent-models-v1.0.0.zip   # 解压出与 EnergyPlus-Agent/ 同级的 models/
+sha256sum -c SHA256SUMS
+```
+
+训练/仿真数据集体积较大，不随仓库发布。
 
 ## 环境配置
 
