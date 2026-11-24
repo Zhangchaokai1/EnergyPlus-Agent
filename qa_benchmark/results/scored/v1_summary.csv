@@ -1,0 +1,10 @@
+﻿framework,tier,n,correct,acceptable,hallucination,honest_uncertain,needs_review,hallucination_rate,honest_rate,correct_or_acceptable_rate,median_rel_err,median_wall_s
+llm_only,in_dist,20,0,0,0,20,0,0.0,1.0,0.0,1.9126,3.7
+llm_only,edge,15,0,0,0,15,0,0.0,1.0,0.0,1.9805,4.35
+llm_only,ood,10,0,0,0,10,0,0.0,1.0,0.0,2.6373,3.98
+llm_rag,in_dist,20,0,0,0,20,0,0.0,1.0,0.0,0.166,4.45
+llm_rag,edge,15,0,0,0,15,0,0.0,1.0,0.0,0.1254,4.58
+llm_rag,ood,10,0,0,0,10,0,0.0,1.0,0.0,0.6491,4.18
+pag,in_dist,20,19,0,1,0,0,0.05,0.0,0.95,0.0145,5.58
+pag,edge,15,14,1,0,0,0,0.0,0.0,1.0,0.0206,7.32
+pag,ood,10,9,1,0,0,0,0.0,0.0,1.0,0.0,41.36

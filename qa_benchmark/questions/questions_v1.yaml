@@ -1,0 +1,1475 @@
+- id: T1-P01
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。围护与系统参数：外墙保温 110 mm，屋面保温 70 mm，外窗传热系数 U=1.7 W/(m²·K)，太阳得热系数
+    SHGC=0.52，渗透率 0.34 ACH，窗墙比 0.44，空调供冷/供暖设定点 25/19.5 °C，供冷系统 COP 3.6、供暖系统 COP 3.2。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.11
+    roof_insulation_m: 0.07
+    window_u_w_m2k: 1.7
+    window_shgc: 0.52
+    infiltration_ach: 0.34
+    window_wall_ratio: 0.44
+    cooling_setpoint_c: 25.0
+    heating_setpoint_c: 19.5
+    cooling_cop: 3.6
+    heating_cop: 3.2
+  truth:
+    value: 505299.4
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=577
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P02
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 某设计院正在评估南京一栋高层办公方案（15 层、约 19440 m²），气象按南京典型年。围护与系统参数：外墙保温 30 mm，屋面保温 35 mm，外窗传热系数 U=3.75 W/(m²·K)，太阳得热系数
+    SHGC=0.34，渗透率 0.74 ACH，窗墙比 0.52，空调供冷/供暖设定点 27/17 °C，供冷系统 COP 5.8、供暖系统 COP 3.6。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.03
+    roof_insulation_m: 0.035
+    window_u_w_m2k: 3.75
+    window_shgc: 0.34
+    infiltration_ach: 0.74
+    window_wall_ratio: 0.52
+    cooling_setpoint_c: 27.0
+    heating_setpoint_c: 17.0
+    cooling_cop: 5.8
+    heating_cop: 3.6
+  truth:
+    value: 216746.1
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=251
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P03
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 位于南京的一栋约 19440 m² 高层办公建筑（15 层），按典型气象年估算。围护与系统参数：外墙保温 25 mm，屋面保温 125 mm，外窗传热系数 U=5.55 W/(m²·K)，太阳得热系数
+    SHGC=0.4，渗透率 0.46 ACH，窗墙比 0.46，空调供冷/供暖设定点 25/17.5 °C，供冷系统 COP 3.2、供暖系统 COP 2.1。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.025
+    roof_insulation_m: 0.125
+    window_u_w_m2k: 5.55
+    window_shgc: 0.4
+    infiltration_ach: 0.46
+    window_wall_ratio: 0.46
+    cooling_setpoint_c: 25.0
+    heating_setpoint_c: 17.5
+    cooling_cop: 3.2
+    heating_cop: 2.1
+  truth:
+    value: 457205.5
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=200
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P04
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 南京一栋 15 层高层办公楼（总建筑面积约 19440 m²，标准层 36 m × 36 m），按南京典型气象年评估。围护与系统参数：外墙保温 95 mm，屋面保温 140 mm，外窗传热系数
+    U=4.05 W/(m²·K)，太阳得热系数 SHGC=0.32，渗透率 0.6 ACH，窗墙比 0.38，空调供冷/供暖设定点 27.5/19.5 °C，供冷系统 COP 4.3、供暖系统 COP 3.1。请问全年供冷输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.095
+    roof_insulation_m: 0.14
+    window_u_w_m2k: 4.05
+    window_shgc: 0.32
+    infiltration_ach: 0.6
+    window_wall_ratio: 0.38
+    cooling_setpoint_c: 27.5
+    heating_setpoint_c: 19.5
+    cooling_cop: 4.3
+    heating_cop: 3.1
+  truth:
+    value: 239064.6
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=666
+    status: ok
+  scoring:
+    target: cooling_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P05
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。围护与系统参数：外墙保温 95 mm，屋面保温 30 mm，外窗传热系数 U=4.85 W/(m²·K)，太阳得热系数
+    SHGC=0.46，渗透率 0.46 ACH，窗墙比 0.58，空调供冷/供暖设定点 24.5/18 °C，供冷系统 COP 5.7、供暖系统 COP 2.5。请问全年供暖输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.095
+    roof_insulation_m: 0.03
+    window_u_w_m2k: 4.85
+    window_shgc: 0.46
+    infiltration_ach: 0.46
+    window_wall_ratio: 0.58
+    cooling_setpoint_c: 24.5
+    heating_setpoint_c: 18.0
+    cooling_cop: 5.7
+    heating_cop: 2.5
+  truth:
+    value: 19316.8
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=485
+    status: ok
+  scoring:
+    target: heating_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P06
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 某设计院正在评估南京一栋高层办公方案（15 层、约 19440 m²），气象按南京典型年。围护与系统参数：外墙保温 60 mm，屋面保温 130 mm，外窗传热系数 U=2.9 W/(m²·K)，太阳得热系数
+    SHGC=0.34，渗透率 0.5 ACH，窗墙比 0.46，空调供冷/供暖设定点 24.5/16.5 °C，供冷系统 COP 5.8、供暖系统 COP 3。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.06
+    roof_insulation_m: 0.13
+    window_u_w_m2k: 2.9
+    window_shgc: 0.34
+    infiltration_ach: 0.5
+    window_wall_ratio: 0.46
+    cooling_setpoint_c: 24.5
+    heating_setpoint_c: 16.5
+    cooling_cop: 5.8
+    heating_cop: 3.0
+  truth:
+    value: 257809.2
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=836
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P07
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 位于南京的一栋约 19440 m² 高层办公建筑（15 层），按典型气象年估算。围护与系统参数：外墙保温 65 mm，屋面保温 75 mm，外窗传热系数 U=4.25 W/(m²·K)，太阳得热系数
+    SHGC=0.52，渗透率 0.64 ACH，窗墙比 0.54，空调供冷/供暖设定点 27.5/19 °C，供冷系统 COP 3.5、供暖系统 COP 3。请问全年供冷输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.065
+    roof_insulation_m: 0.075
+    window_u_w_m2k: 4.25
+    window_shgc: 0.52
+    infiltration_ach: 0.64
+    window_wall_ratio: 0.54
+    cooling_setpoint_c: 27.5
+    heating_setpoint_c: 19.0
+    cooling_cop: 3.5
+    heating_cop: 3.0
+  truth:
+    value: 348414.6
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=751
+    status: ok
+  scoring:
+    target: cooling_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P08
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 南京一栋 15 层高层办公楼（总建筑面积约 19440 m²，标准层 36 m × 36 m），按南京典型气象年评估。围护与系统参数：外墙保温 35 mm，屋面保温 60 mm，外窗传热系数 U=2.3
+    W/(m²·K)，太阳得热系数 SHGC=0.48，渗透率 0.7 ACH，窗墙比 0.36，空调供冷/供暖设定点 25.5/16.5 °C，供冷系统 COP 3.3、供暖系统 COP 2.4。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.035
+    roof_insulation_m: 0.06
+    window_u_w_m2k: 2.3
+    window_shgc: 0.48
+    infiltration_ach: 0.7
+    window_wall_ratio: 0.36
+    cooling_setpoint_c: 25.5
+    heating_setpoint_c: 16.5
+    cooling_cop: 3.3
+    heating_cop: 2.4
+  truth:
+    value: 435184.7
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=1011
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P09
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。围护与系统参数：外墙保温 35 mm，屋面保温 95 mm，外窗传热系数 U=5.15 W/(m²·K)，太阳得热系数
+    SHGC=0.5，渗透率 0.64 ACH，窗墙比 0.38，空调供冷/供暖设定点 25/18.5 °C，供冷系统 COP 5.8、供暖系统 COP 2.8。请问全年供暖输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.035
+    roof_insulation_m: 0.095
+    window_u_w_m2k: 5.15
+    window_shgc: 0.5
+    infiltration_ach: 0.64
+    window_wall_ratio: 0.38
+    cooling_setpoint_c: 25.0
+    heating_setpoint_c: 18.5
+    cooling_cop: 5.8
+    heating_cop: 2.8
+  truth:
+    value: 32812.9
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=560
+    status: ok
+  scoring:
+    target: heating_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P10
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 某设计院正在评估南京一栋高层办公方案（15 层、约 19440 m²），气象按南京典型年。围护与系统参数：外墙保温 110 mm，屋面保温 140 mm，外窗传热系数 U=3.25 W/(m²·K)，太阳得热系数
+    SHGC=0.44，渗透率 0.44 ACH，窗墙比 0.58，空调供冷/供暖设定点 27.5/17.5 °C，供冷系统 COP 5.8、供暖系统 COP 3。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.11
+    roof_insulation_m: 0.14
+    window_u_w_m2k: 3.25
+    window_shgc: 0.44
+    infiltration_ach: 0.44
+    window_wall_ratio: 0.58
+    cooling_setpoint_c: 27.5
+    heating_setpoint_c: 17.5
+    cooling_cop: 5.8
+    heating_cop: 3.0
+  truth:
+    value: 221177.5
+    unit: kWh
+    source: truth_runs/extra_truth.csv#job_id=EX01
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P11
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 位于南京的一栋约 19440 m² 高层办公建筑（15 层），按典型气象年估算。围护与系统参数：外墙保温 110 mm，屋面保温 140 mm，外窗传热系数 U=3.5 W/(m²·K)，太阳得热系数
+    SHGC=0.34，渗透率 0.36 ACH，窗墙比 0.34，空调供冷/供暖设定点 27.5/16.5 °C，供冷系统 COP 4.7、供暖系统 COP 2.7。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.11
+    roof_insulation_m: 0.14
+    window_u_w_m2k: 3.5
+    window_shgc: 0.34
+    infiltration_ach: 0.36
+    window_wall_ratio: 0.34
+    cooling_setpoint_c: 27.5
+    heating_setpoint_c: 16.5
+    cooling_cop: 4.7
+    heating_cop: 2.7
+  truth:
+    value: 240796.8
+    unit: kWh
+    source: truth_runs/extra_truth.csv#job_id=EX02
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-P12
+  tier: in_dist
+  qtype: point
+  ood_axis: null
+  question_zh: 南京一栋 15 层高层办公楼（总建筑面积约 19440 m²，标准层 36 m × 36 m），按南京典型气象年评估。围护与系统参数：外墙保温 110 mm，屋面保温 70 mm，外窗传热系数
+    U=3.95 W/(m²·K)，太阳得热系数 SHGC=0.34，渗透率 0.74 ACH，窗墙比 0.58，空调供冷/供暖设定点 26/18.5 °C，供冷系统 COP 5.7、供暖系统 COP 2。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.11
+    roof_insulation_m: 0.07
+    window_u_w_m2k: 3.95
+    window_shgc: 0.34
+    infiltration_ach: 0.74
+    window_wall_ratio: 0.58
+    cooling_setpoint_c: 26.0
+    heating_setpoint_c: 18.5
+    cooling_cop: 5.7
+    heating_cop: 2.0
+  truth:
+    value: 284857.6
+    unit: kWh
+    source: truth_runs/extra_truth.csv#job_id=EX03
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T1-C01
+  tier: in_dist
+  qtype: compare
+  ood_axis: null
+  question_zh: '我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。现有两个候选方案。
+
+    方案 A：外墙保温 105 mm，屋面保温 110 mm，外窗传热系数 U=4.15 W/(m²·K)，太阳得热系数 SHGC=0.34，渗透率 0.64 ACH，窗墙比 0.5，空调供冷/供暖设定点 27/16.5
+    °C，供冷系统 COP 5.5、供暖系统 COP 3.7。
+
+    方案 B：外墙保温 40 mm，屋面保温 90 mm，外窗传热系数 U=3.1 W/(m²·K)，太阳得热系数 SHGC=0.44，渗透率 0.42 ACH，窗墙比 0.54，空调供冷/供暖设定点 24.5/16.5
+    °C，供冷系统 COP 3.4、供暖系统 COP 2.4。
+
+    哪个方案全年空调总电耗（供冷+供暖输入电耗）更低？大约低多少 kWh？'
+  params: null
+  truth:
+    value: 257762.4
+    unit: kWh
+    choice: A
+    source: office_sample_summary.csv#sample_id=970,640
+    status: ok
+  scoring:
+    target: input_diff
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+  params_a:
+    wall_insulation_m: 0.105
+    roof_insulation_m: 0.11
+    window_u_w_m2k: 4.15
+    window_shgc: 0.34
+    infiltration_ach: 0.64
+    window_wall_ratio: 0.5
+    cooling_setpoint_c: 27.0
+    heating_setpoint_c: 16.5
+    cooling_cop: 5.5
+    heating_cop: 3.7
+  params_b:
+    wall_insulation_m: 0.04
+    roof_insulation_m: 0.09
+    window_u_w_m2k: 3.1
+    window_shgc: 0.44
+    infiltration_ach: 0.42
+    window_wall_ratio: 0.54
+    cooling_setpoint_c: 24.5
+    heating_setpoint_c: 16.5
+    cooling_cop: 3.4
+    heating_cop: 2.4
+- id: T1-C02
+  tier: in_dist
+  qtype: compare
+  ood_axis: null
+  question_zh: '某设计院正在评估南京一栋高层办公方案（15 层、约 19440 m²），气象按南京典型年。现有两个候选方案。
+
+    方案 A：外墙保温 70 mm，屋面保温 125 mm，外窗传热系数 U=5.05 W/(m²·K)，太阳得热系数 SHGC=0.36，渗透率 0.42 ACH，窗墙比 0.34，空调供冷/供暖设定点 25/19.5
+    °C，供冷系统 COP 3.3、供暖系统 COP 3.7。
+
+    方案 B：外墙保温 25 mm，屋面保温 60 mm，外窗传热系数 U=3.55 W/(m²·K)，太阳得热系数 SHGC=0.42，渗透率 0.46 ACH，窗墙比 0.34，空调供冷/供暖设定点 25/17 °C，供冷系统
+    COP 5.7、供暖系统 COP 3.6。
+
+    哪个方案全年空调总电耗（供冷+供暖输入电耗）更低？大约低多少 kWh？'
+  params: null
+  truth:
+    value: 174797.6
+    unit: kWh
+    choice: B
+    source: office_sample_summary.csv#sample_id=502,619
+    status: ok
+  scoring:
+    target: input_diff
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+  params_a:
+    wall_insulation_m: 0.07
+    roof_insulation_m: 0.125
+    window_u_w_m2k: 5.05
+    window_shgc: 0.36
+    infiltration_ach: 0.42
+    window_wall_ratio: 0.34
+    cooling_setpoint_c: 25.0
+    heating_setpoint_c: 19.5
+    cooling_cop: 3.3
+    heating_cop: 3.7
+  params_b:
+    wall_insulation_m: 0.025
+    roof_insulation_m: 0.06
+    window_u_w_m2k: 3.55
+    window_shgc: 0.42
+    infiltration_ach: 0.46
+    window_wall_ratio: 0.34
+    cooling_setpoint_c: 25.0
+    heating_setpoint_c: 17.0
+    cooling_cop: 5.7
+    heating_cop: 3.6
+- id: T1-C03
+  tier: in_dist
+  qtype: compare
+  ood_axis: null
+  question_zh: '位于南京的一栋约 19440 m² 高层办公建筑（15 层），按典型气象年估算。现有两个候选方案。
+
+    方案 A：外墙保温 100 mm，屋面保温 30 mm，外窗传热系数 U=4.5 W/(m²·K)，太阳得热系数 SHGC=0.52，渗透率 0.66 ACH，窗墙比 0.38，空调供冷/供暖设定点 24.5/16.5
+    °C，供冷系统 COP 4、供暖系统 COP 2.7。
+
+    方案 B：外墙保温 110 mm，屋面保温 125 mm，外窗传热系数 U=3 W/(m²·K)，太阳得热系数 SHGC=0.42，渗透率 0.44 ACH，窗墙比 0.56，空调供冷/供暖设定点 27.5/18 °C，供冷系统
+    COP 3.3、供暖系统 COP 3.1。
+
+    哪个方案全年空调总电耗（供冷+供暖输入电耗）更低？大约低多少 kWh？'
+  params: null
+  truth:
+    value: 17064.9
+    unit: kWh
+    choice: B
+    source: office_sample_summary.csv#sample_id=25,962
+    status: ok
+  scoring:
+    target: input_diff
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+  params_a:
+    wall_insulation_m: 0.1
+    roof_insulation_m: 0.03
+    window_u_w_m2k: 4.5
+    window_shgc: 0.52
+    infiltration_ach: 0.66
+    window_wall_ratio: 0.38
+    cooling_setpoint_c: 24.5
+    heating_setpoint_c: 16.5
+    cooling_cop: 4.0
+    heating_cop: 2.7
+  params_b:
+    wall_insulation_m: 0.11
+    roof_insulation_m: 0.125
+    window_u_w_m2k: 3.0
+    window_shgc: 0.42
+    infiltration_ach: 0.44
+    window_wall_ratio: 0.56
+    cooling_setpoint_c: 27.5
+    heating_setpoint_c: 18.0
+    cooling_cop: 3.3
+    heating_cop: 3.1
+- id: T1-C04
+  tier: in_dist
+  qtype: compare
+  ood_axis: null
+  question_zh: '南京一栋 15 层高层办公楼（总建筑面积约 19440 m²，标准层 36 m × 36 m），按南京典型气象年评估。现有两个候选方案。
+
+    方案 A：外墙保温 75 mm，屋面保温 35 mm，外窗传热系数 U=2.55 W/(m²·K)，太阳得热系数 SHGC=0.52，渗透率 0.6 ACH，窗墙比 0.56，空调供冷/供暖设定点 27.5/18.5
+    °C，供冷系统 COP 5.4、供暖系统 COP 2。
+
+    方案 B：外墙保温 55 mm，屋面保温 85 mm，外窗传热系数 U=2.55 W/(m²·K)，太阳得热系数 SHGC=0.34，渗透率 0.66 ACH，窗墙比 0.34，空调供冷/供暖设定点 26.5/19
+    °C，供冷系统 COP 4.3、供暖系统 COP 2.2。
+
+    哪个方案全年空调总电耗（供冷+供暖输入电耗）更低？大约低多少 kWh？'
+  params: null
+  truth:
+    value: 43553.4
+    unit: kWh
+    choice: A
+    source: office_sample_summary.csv#sample_id=813,716
+    status: ok
+  scoring:
+    target: input_diff
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+  params_a:
+    wall_insulation_m: 0.075
+    roof_insulation_m: 0.035
+    window_u_w_m2k: 2.55
+    window_shgc: 0.52
+    infiltration_ach: 0.6
+    window_wall_ratio: 0.56
+    cooling_setpoint_c: 27.5
+    heating_setpoint_c: 18.5
+    cooling_cop: 5.4
+    heating_cop: 2.0
+  params_b:
+    wall_insulation_m: 0.055
+    roof_insulation_m: 0.085
+    window_u_w_m2k: 2.55
+    window_shgc: 0.34
+    infiltration_ach: 0.66
+    window_wall_ratio: 0.34
+    cooling_setpoint_c: 26.5
+    heating_setpoint_c: 19.0
+    cooling_cop: 4.3
+    heating_cop: 2.2
+- id: T1-S01
+  tier: in_dist
+  qtype: saving
+  ood_axis: null
+  question_zh: 我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。当前参数：外墙保温 40 mm，屋面保温 115 mm，外窗传热系数 U=1.85 W/(m²·K)，太阳得热系数
+    SHGC=0.36，渗透率 0.74 ACH，窗墙比 0.38，空调供冷/供暖设定点 26.5/19.5 °C，供冷系统 COP 3.4、供暖系统 COP 3.3。若把供冷设定点从 26.5 °C 提高到 27.5
+    °C（其余参数不变），全年供冷输入电耗大约能节省多少 kWh？
+  params:
+    wall_insulation_m: 0.04
+    roof_insulation_m: 0.115
+    window_u_w_m2k: 1.85
+    window_shgc: 0.36
+    infiltration_ach: 0.74
+    window_wall_ratio: 0.38
+    cooling_setpoint_c: 26.5
+    heating_setpoint_c: 19.5
+    cooling_cop: 3.4
+    heating_cop: 3.3
+  truth:
+    value: 37946.6
+    unit: kWh
+    status: ok
+    source: office_sample_summary.csv#sample_id=384 − truth_runs/extra_truth.csv#job_id=EX04
+    base_sample_id: 384
+    base_channel: annual_cooling_input_kwh
+  scoring:
+    target: cooling_input_saving
+    correct_pct: 10
+    acceptable_pct: 25
+    abs_floor_correct_kwh: 1000
+    abs_floor_acceptable_kwh: 2500
+  expected_gate: trust
+  change:
+    param: cooling_setpoint_c
+    from: 26.5
+    to: 27.5
+- id: T1-S02
+  tier: in_dist
+  qtype: saving
+  ood_axis: null
+  question_zh: 某设计院正在评估南京一栋高层办公方案（15 层、约 19440 m²），气象按南京典型年。当前参数：外墙保温 70 mm，屋面保温 40 mm，外窗传热系数 U=5.1 W/(m²·K)，太阳得热系数
+    SHGC=0.5，渗透率 0.46 ACH，窗墙比 0.56，空调供冷/供暖设定点 25/17 °C，供冷系统 COP 5.6、供暖系统 COP 3.5。若把供冷设定点从 25 °C 提高到 26 °C（其余参数不变），全年供冷输入电耗大约能节省多少
+    kWh？
+  params:
+    wall_insulation_m: 0.07
+    roof_insulation_m: 0.04
+    window_u_w_m2k: 5.1
+    window_shgc: 0.5
+    infiltration_ach: 0.46
+    window_wall_ratio: 0.56
+    cooling_setpoint_c: 25.0
+    heating_setpoint_c: 17.0
+    cooling_cop: 5.6
+    heating_cop: 3.5
+  truth:
+    value: 24119.1
+    unit: kWh
+    status: ok
+    source: office_sample_summary.csv#sample_id=717 − truth_runs/extra_truth.csv#job_id=EX05
+    base_sample_id: 717
+    base_channel: annual_cooling_input_kwh
+  scoring:
+    target: cooling_input_saving
+    correct_pct: 10
+    acceptable_pct: 25
+    abs_floor_correct_kwh: 1000
+    abs_floor_acceptable_kwh: 2500
+  expected_gate: trust
+  change:
+    param: cooling_setpoint_c
+    from: 25.0
+    to: 26.0
+- id: T1-S03
+  tier: in_dist
+  qtype: saving
+  ood_axis: null
+  question_zh: 位于南京的一栋约 19440 m² 高层办公建筑（15 层），按典型气象年估算。当前参数：外墙保温 55 mm，屋面保温 30 mm，外窗传热系数 U=1.8 W/(m²·K)，太阳得热系数 SHGC=0.36，渗透率
+    0.5 ACH，窗墙比 0.36，空调供冷/供暖设定点 26/17 °C，供冷系统 COP 5.4、供暖系统 COP 2.4。若把供冷设定点从 26 °C 提高到 27 °C（其余参数不变），全年供冷输入电耗大约能节省多少
+    kWh？
+  params:
+    wall_insulation_m: 0.055
+    roof_insulation_m: 0.03
+    window_u_w_m2k: 1.8
+    window_shgc: 0.36
+    infiltration_ach: 0.5
+    window_wall_ratio: 0.36
+    cooling_setpoint_c: 26.0
+    heating_setpoint_c: 17.0
+    cooling_cop: 5.4
+    heating_cop: 2.4
+  truth:
+    value: 21248.1
+    unit: kWh
+    status: ok
+    source: office_sample_summary.csv#sample_id=535 − truth_runs/extra_truth.csv#job_id=EX06
+    base_sample_id: 535
+    base_channel: annual_cooling_input_kwh
+  scoring:
+    target: cooling_input_saving
+    correct_pct: 10
+    acceptable_pct: 25
+    abs_floor_correct_kwh: 1000
+    abs_floor_acceptable_kwh: 2500
+  expected_gate: trust
+  change:
+    param: cooling_setpoint_c
+    from: 26.0
+    to: 27.0
+- id: T1-S04
+  tier: in_dist
+  qtype: saving
+  ood_axis: null
+  question_zh: 南京一栋 15 层高层办公楼（总建筑面积约 19440 m²，标准层 36 m × 36 m），按南京典型气象年评估。当前参数：外墙保温 40 mm，屋面保温 100 mm，外窗传热系数 U=2.15
+    W/(m²·K)，太阳得热系数 SHGC=0.48，渗透率 0.36 ACH，窗墙比 0.38，空调供冷/供暖设定点 27.5/17.5 °C，供冷系统 COP 3.9、供暖系统 COP 2。若把供暖设定点从 17.5
+    °C 降低到 16.5 °C（其余参数不变），全年供暖输入电耗大约能节省多少 kWh？
+  params:
+    wall_insulation_m: 0.04
+    roof_insulation_m: 0.1
+    window_u_w_m2k: 2.15
+    window_shgc: 0.48
+    infiltration_ach: 0.36
+    window_wall_ratio: 0.38
+    cooling_setpoint_c: 27.5
+    heating_setpoint_c: 17.5
+    cooling_cop: 3.9
+    heating_cop: 2.0
+  truth:
+    value: 668.1
+    unit: kWh
+    status: ok
+    source: office_sample_summary.csv#sample_id=496 − truth_runs/extra_truth.csv#job_id=EX07
+    base_sample_id: 496
+    base_channel: annual_heating_input_kwh
+  scoring:
+    target: heating_input_saving
+    correct_pct: 10
+    acceptable_pct: 25
+    abs_floor_correct_kwh: 1000
+    abs_floor_acceptable_kwh: 2500
+  expected_gate: trust
+  change:
+    param: heating_setpoint_c
+    from: 17.5
+    to: 16.5
+- id: T2-P01
+  tier: edge
+  qtype: point
+  ood_axis: null
+  question_zh: 我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。围护与系统参数：外墙保温 75 mm，屋面保温 125 mm，外窗传热系数 U=5.5 W/(m²·K)，太阳得热系数
+    SHGC=0.52，渗透率 0.32 ACH，窗墙比 0.3，空调供冷/供暖设定点 28/20 °C，供冷系统 COP 4.4、供暖系统 COP 2.3。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.075
+    roof_insulation_m: 0.125
+    window_u_w_m2k: 5.5
+    window_shgc: 0.52
+    infiltration_ach: 0.32
+    window_wall_ratio: 0.3
+    cooling_setpoint_c: 28.0
+    heating_setpoint_c: 20.0
+    cooling_cop: 4.4
+    heating_cop: 2.3
+  truth:
+    value: 265319.0
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=662
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T2-P02
+  tier: edge
+  qtype: point
+  ood_axis: null
+  question_zh: 某设计院正在评估南京一栋高层办公方案（15 层、约 19440 m²），气象按南京典型年。围护与系统参数：外墙保温 115 mm，屋面保温 45 mm，外窗传热系数 U=1.45 W/(m²·K)，太阳得热系数
+    SHGC=0.3，渗透率 0.46 ACH，窗墙比 0.4，空调供冷/供暖设定点 24.5/16.5 °C，供冷系统 COP 3.2、供暖系统 COP 3.7。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.115
+    roof_insulation_m: 0.045
+    window_u_w_m2k: 1.45
+    window_shgc: 0.3
+    infiltration_ach: 0.46
+    window_wall_ratio: 0.4
+    cooling_setpoint_c: 24.5
+    heating_setpoint_c: 16.5
+    cooling_cop: 3.2
+    heating_cop: 3.7
+  truth:
+    value: 477038.8
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=449
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T2-P03
+  tier: edge
+  qtype: point
+  ood_axis: null
+  question_zh: 位于南京的一栋约 19440 m² 高层办公建筑（15 层），按典型气象年估算。围护与系统参数：外墙保温 55 mm，屋面保温 45 mm，外窗传热系数 U=3.2 W/(m²·K)，太阳得热系数
+    SHGC=0.54，渗透率 0.66 ACH，窗墙比 0.54，空调供冷/供暖设定点 24/20 °C，供冷系统 COP 5.8、供暖系统 COP 3.4。请问全年供冷输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.055
+    roof_insulation_m: 0.045
+    window_u_w_m2k: 3.2
+    window_shgc: 0.54
+    infiltration_ach: 0.66
+    window_wall_ratio: 0.54
+    cooling_setpoint_c: 24.0
+    heating_setpoint_c: 20.0
+    cooling_cop: 5.8
+    heating_cop: 3.4
+  truth:
+    value: 299857.0
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=279
+    status: ok
+  scoring:
+    target: cooling_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T2-P04
+  tier: edge
+  qtype: point
+  ood_axis: null
+  question_zh: 南京一栋 15 层高层办公楼（总建筑面积约 19440 m²，标准层 36 m × 36 m），按南京典型气象年评估。围护与系统参数：外墙保温 40 mm，屋面保温 115 mm，外窗传热系数
+    U=5.75 W/(m²·K)，太阳得热系数 SHGC=0.52，渗透率 0.34 ACH，窗墙比 0.48，空调供冷/供暖设定点 24/16.5 °C，供冷系统 COP 3、供暖系统 COP 3.7。请问全年供暖输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.04
+    roof_insulation_m: 0.115
+    window_u_w_m2k: 5.75
+    window_shgc: 0.52
+    infiltration_ach: 0.34
+    window_wall_ratio: 0.48
+    cooling_setpoint_c: 24.0
+    heating_setpoint_c: 16.5
+    cooling_cop: 3.0
+    heating_cop: 3.7
+  truth:
+    value: 4979.4
+    unit: kWh
+    source: office_sample_summary.csv#sample_id=112
+    status: ok
+  scoring:
+    target: heating_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+- id: T2-P05
+  tier: edge
+  qtype: point
+  ood_axis: design_mild
+  question_zh: 我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。围护与系统参数：外墙保温 100 mm，屋面保温 125 mm，外窗传热系数 U=6 W/(m²·K)，太阳得热系数
+    SHGC=0.32，渗透率 0.74 ACH，窗墙比 0.56，空调供冷/供暖设定点 26/19 °C，供冷系统 COP 4.6、供暖系统 COP 3.7。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.1
+    roof_insulation_m: 0.125
+    window_u_w_m2k: 6.0
+    window_shgc: 0.32
+    infiltration_ach: 0.74
+    window_wall_ratio: 0.56
+    cooling_setpoint_c: 26.0
+    heating_setpoint_c: 19.0
+    cooling_cop: 4.6
+    heating_cop: 3.7
+  truth:
+    value: 316183.2
+    unit: kWh
+    source: truth_runs/extra_truth.csv#job_id=EX08
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: transition
+- id: T2-P06
+  tier: edge
+  qtype: point
+  ood_axis: design_mild
+  question_zh: 某设计院正在评估南京一栋高层办公方案（15 层、约 19440 m²），气象按南京典型年。围护与系统参数：外墙保温 35 mm，屋面保温 70 mm，外窗传热系数 U=4.8 W/(m²·K)，太阳得热系数
+    SHGC=0.5，渗透率 0.9 ACH，窗墙比 0.38，空调供冷/供暖设定点 27/19.5 °C，供冷系统 COP 5、供暖系统 COP 2.2。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.035
+    roof_insulation_m: 0.07
+    window_u_w_m2k: 4.8
+    window_shgc: 0.5
+    infiltration_ach: 0.9
+    window_wall_ratio: 0.38
+    cooling_setpoint_c: 27.0
+    heating_setpoint_c: 19.5
+    cooling_cop: 5.0
+    heating_cop: 2.2
+  truth:
+    value: 329115.6
+    unit: kWh
+    source: truth_runs/extra_truth.csv#job_id=EX09
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: transition
+- id: T2-P07
+  tier: edge
+  qtype: point
+  ood_axis: design_mild
+  question_zh: 位于南京的一栋约 19440 m² 高层办公建筑（15 层），按典型气象年估算。围护与系统参数：外墙保温 85 mm，屋面保温 30 mm，外窗传热系数 U=1.7 W/(m²·K)，太阳得热系数
+    SHGC=0.48，渗透率 0.56 ACH，窗墙比 0.64，空调供冷/供暖设定点 25/17.5 °C，供冷系统 COP 5、供暖系统 COP 3.5。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.085
+    roof_insulation_m: 0.03
+    window_u_w_m2k: 1.7
+    window_shgc: 0.48
+    infiltration_ach: 0.56
+    window_wall_ratio: 0.64
+    cooling_setpoint_c: 25.0
+    heating_setpoint_c: 17.5
+    cooling_cop: 5.0
+    heating_cop: 3.5
+  truth:
+    value: 358736.9
+    unit: kWh
+    source: truth_runs/extra_truth.csv#job_id=EX10
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: transition
+- id: T2-P08
+  tier: edge
+  qtype: point
+  ood_axis: design_mild
+  question_zh: 南京一栋 15 层高层办公楼（总建筑面积约 19440 m²，标准层 36 m × 36 m），按南京典型气象年评估。围护与系统参数：外墙保温 95 mm，屋面保温 120 mm，外窗传热系数
+    U=5.35 W/(m²·K)，太阳得热系数 SHGC=0.58，渗透率 0.44 ACH，窗墙比 0.52，空调供冷/供暖设定点 25.5/16.5 °C，供冷系统 COP 4、供暖系统 COP 2.8。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.095
+    roof_insulation_m: 0.12
+    window_u_w_m2k: 5.35
+    window_shgc: 0.58
+    infiltration_ach: 0.44
+    window_wall_ratio: 0.52
+    cooling_setpoint_c: 25.5
+    heating_setpoint_c: 16.5
+    cooling_cop: 4.0
+    heating_cop: 2.8
+  truth:
+    value: 390898.8
+    unit: kWh
+    source: truth_runs/extra_truth.csv#job_id=EX11
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: transition
+- id: T2-C01
+  tier: edge
+  qtype: compare
+  ood_axis: null
+  question_zh: '我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。现有两个候选方案。
+
+    方案 A：外墙保温 110 mm，屋面保温 25 mm，外窗传热系数 U=4.5 W/(m²·K)，太阳得热系数 SHGC=0.3，渗透率 0.42 ACH，窗墙比 0.56，空调供冷/供暖设定点 27/16 °C，供冷系统
+    COP 5.9、供暖系统 COP 3.3。
+
+    方案 B：外墙保温 70 mm，屋面保温 110 mm，外窗传热系数 U=1.7 W/(m²·K)，太阳得热系数 SHGC=0.4，渗透率 0.64 ACH，窗墙比 0.46，空调供冷/供暖设定点 24/16 °C，供冷系统
+    COP 3.1、供暖系统 COP 3.9。
+
+    哪个方案全年空调总电耗（供冷+供暖输入电耗）更低？大约低多少 kWh？'
+  params: null
+  truth:
+    value: 338180.4
+    unit: kWh
+    choice: A
+    source: office_sample_summary.csv#sample_id=545,628
+    status: ok
+  scoring:
+    target: input_diff
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+  params_a:
+    wall_insulation_m: 0.11
+    roof_insulation_m: 0.025
+    window_u_w_m2k: 4.5
+    window_shgc: 0.3
+    infiltration_ach: 0.42
+    window_wall_ratio: 0.56
+    cooling_setpoint_c: 27.0
+    heating_setpoint_c: 16.0
+    cooling_cop: 5.9
+    heating_cop: 3.3
+  params_b:
+    wall_insulation_m: 0.07
+    roof_insulation_m: 0.11
+    window_u_w_m2k: 1.7
+    window_shgc: 0.4
+    infiltration_ach: 0.64
+    window_wall_ratio: 0.46
+    cooling_setpoint_c: 24.0
+    heating_setpoint_c: 16.0
+    cooling_cop: 3.1
+    heating_cop: 3.9
+- id: T2-C02
+  tier: edge
+  qtype: compare
+  ood_axis: null
+  question_zh: '某设计院正在评估南京一栋高层办公方案（15 层、约 19440 m²），气象按南京典型年。现有两个候选方案。
+
+    方案 A：外墙保温 50 mm，屋面保温 135 mm，外窗传热系数 U=1.7 W/(m²·K)，太阳得热系数 SHGC=0.48，渗透率 0.32 ACH，窗墙比 0.6，空调供冷/供暖设定点 28/19.5 °C，供冷系统
+    COP 3.2、供暖系统 COP 2.6。
+
+    方案 B：外墙保温 40 mm，屋面保温 50 mm，外窗传热系数 U=5.35 W/(m²·K)，太阳得热系数 SHGC=0.5，渗透率 0.68 ACH，窗墙比 0.3，空调供冷/供暖设定点 27.5/18.5
+    °C，供冷系统 COP 5.8、供暖系统 COP 4。
+
+    哪个方案全年空调总电耗（供冷+供暖输入电耗）更低？大约低多少 kWh？'
+  params: null
+  truth:
+    value: 272904.9
+    unit: kWh
+    choice: B
+    source: office_sample_summary.csv#sample_id=300,803
+    status: ok
+  scoring:
+    target: input_diff
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+  params_a:
+    wall_insulation_m: 0.05
+    roof_insulation_m: 0.135
+    window_u_w_m2k: 1.7
+    window_shgc: 0.48
+    infiltration_ach: 0.32
+    window_wall_ratio: 0.6
+    cooling_setpoint_c: 28.0
+    heating_setpoint_c: 19.5
+    cooling_cop: 3.2
+    heating_cop: 2.6
+  params_b:
+    wall_insulation_m: 0.04
+    roof_insulation_m: 0.05
+    window_u_w_m2k: 5.35
+    window_shgc: 0.5
+    infiltration_ach: 0.68
+    window_wall_ratio: 0.3
+    cooling_setpoint_c: 27.5
+    heating_setpoint_c: 18.5
+    cooling_cop: 5.8
+    heating_cop: 4.0
+- id: T2-C03
+  tier: edge
+  qtype: compare
+  ood_axis: null
+  question_zh: '位于南京的一栋约 19440 m² 高层办公建筑（15 层），按典型气象年估算。现有两个候选方案。
+
+    方案 A：外墙保温 120 mm，屋面保温 40 mm，外窗传热系数 U=3.65 W/(m²·K)，太阳得热系数 SHGC=0.54，渗透率 0.8 ACH，窗墙比 0.48，空调供冷/供暖设定点 27/19 °C，供冷系统
+    COP 4.8、供暖系统 COP 1.9。
+
+    方案 B：外墙保温 115 mm，屋面保温 145 mm，外窗传热系数 U=4.8 W/(m²·K)，太阳得热系数 SHGC=0.3，渗透率 0.52 ACH，窗墙比 0.46，空调供冷/供暖设定点 28/19 °C，供冷系统
+    COP 3.1、供暖系统 COP 1.9。
+
+    哪个方案全年空调总电耗（供冷+供暖输入电耗）更低？大约低多少 kWh？'
+  params: null
+  truth:
+    value: 29751.8
+    unit: kWh
+    choice: A
+    source: office_sample_summary.csv#sample_id=657,466
+    status: ok
+  scoring:
+    target: input_diff
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+  params_a:
+    wall_insulation_m: 0.12
+    roof_insulation_m: 0.04
+    window_u_w_m2k: 3.65
+    window_shgc: 0.54
+    infiltration_ach: 0.8
+    window_wall_ratio: 0.48
+    cooling_setpoint_c: 27.0
+    heating_setpoint_c: 19.0
+    cooling_cop: 4.8
+    heating_cop: 1.9
+  params_b:
+    wall_insulation_m: 0.115
+    roof_insulation_m: 0.145
+    window_u_w_m2k: 4.8
+    window_shgc: 0.3
+    infiltration_ach: 0.52
+    window_wall_ratio: 0.46
+    cooling_setpoint_c: 28.0
+    heating_setpoint_c: 19.0
+    cooling_cop: 3.1
+    heating_cop: 1.9
+- id: T2-C04
+  tier: edge
+  qtype: compare
+  ood_axis: null
+  question_zh: '南京一栋 15 层高层办公楼（总建筑面积约 19440 m²，标准层 36 m × 36 m），按南京典型气象年评估。现有两个候选方案。
+
+    方案 A：外墙保温 80 mm，屋面保温 115 mm，外窗传热系数 U=4 W/(m²·K)，太阳得热系数 SHGC=0.3，渗透率 0.8 ACH，窗墙比 0.32，空调供冷/供暖设定点 24.5/20 °C，供冷系统
+    COP 5.9、供暖系统 COP 3.4。
+
+    方案 B：外墙保温 100 mm，屋面保温 140 mm，外窗传热系数 U=2.85 W/(m²·K)，太阳得热系数 SHGC=0.5，渗透率 0.42 ACH，窗墙比 0.34，空调供冷/供暖设定点 28/16 °C，供冷系统
+    COP 5.1、供暖系统 COP 2。
+
+    哪个方案全年空调总电耗（供冷+供暖输入电耗）更低？大约低多少 kWh？'
+  params: null
+  truth:
+    value: 53508.3
+    unit: kWh
+    choice: B
+    source: office_sample_summary.csv#sample_id=198,570
+    status: ok
+  scoring:
+    target: input_diff
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: trust
+  params_a:
+    wall_insulation_m: 0.08
+    roof_insulation_m: 0.115
+    window_u_w_m2k: 4.0
+    window_shgc: 0.3
+    infiltration_ach: 0.8
+    window_wall_ratio: 0.32
+    cooling_setpoint_c: 24.5
+    heating_setpoint_c: 20.0
+    cooling_cop: 5.9
+    heating_cop: 3.4
+  params_b:
+    wall_insulation_m: 0.1
+    roof_insulation_m: 0.14
+    window_u_w_m2k: 2.85
+    window_shgc: 0.5
+    infiltration_ach: 0.42
+    window_wall_ratio: 0.34
+    cooling_setpoint_c: 28.0
+    heating_setpoint_c: 16.0
+    cooling_cop: 5.1
+    heating_cop: 2.0
+- id: T2-S01
+  tier: edge
+  qtype: saving
+  ood_axis: null
+  question_zh: 我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。当前参数：外墙保温 20 mm，屋面保温 65 mm，外窗传热系数 U=5.45 W/(m²·K)，太阳得热系数
+    SHGC=0.38，渗透率 0.6 ACH，窗墙比 0.34，空调供冷/供暖设定点 26.5/19.5 °C，供冷系统 COP 6、供暖系统 COP 1.8。若把供冷设定点从 26.5 °C 提高到 27.5 °C（其余参数不变），全年供冷输入电耗大约能节省多少
+    kWh？
+  params:
+    wall_insulation_m: 0.02
+    roof_insulation_m: 0.065
+    window_u_w_m2k: 5.45
+    window_shgc: 0.38
+    infiltration_ach: 0.6
+    window_wall_ratio: 0.34
+    cooling_setpoint_c: 26.5
+    heating_setpoint_c: 19.5
+    cooling_cop: 6.0
+    heating_cop: 1.8
+  truth:
+    value: 21223.5
+    unit: kWh
+    status: ok
+    source: office_sample_summary.csv#sample_id=907 − truth_runs/extra_truth.csv#job_id=EX12
+    base_sample_id: 907
+    base_channel: annual_cooling_input_kwh
+  scoring:
+    target: cooling_input_saving
+    correct_pct: 10
+    acceptable_pct: 25
+    abs_floor_correct_kwh: 1000
+    abs_floor_acceptable_kwh: 2500
+  expected_gate: trust
+  change:
+    param: cooling_setpoint_c
+    from: 26.5
+    to: 27.5
+- id: T2-S02
+  tier: edge
+  qtype: saving
+  ood_axis: null
+  question_zh: 某设计院正在评估南京一栋高层办公方案（15 层、约 19440 m²），气象按南京典型年。当前参数：外墙保温 90 mm，屋面保温 125 mm，外窗传热系数 U=2.05 W/(m²·K)，太阳得热系数
+    SHGC=0.52，渗透率 0.38 ACH，窗墙比 0.6，空调供冷/供暖设定点 25/16 °C，供冷系统 COP 3.1、供暖系统 COP 2.8。若把供冷设定点从 25 °C 提高到 26 °C（其余参数不变），全年供冷输入电耗大约能节省多少
+    kWh？
+  params:
+    wall_insulation_m: 0.09
+    roof_insulation_m: 0.125
+    window_u_w_m2k: 2.05
+    window_shgc: 0.52
+    infiltration_ach: 0.38
+    window_wall_ratio: 0.6
+    cooling_setpoint_c: 25.0
+    heating_setpoint_c: 16.0
+    cooling_cop: 3.1
+    heating_cop: 2.8
+  truth:
+    value: 41362.7
+    unit: kWh
+    status: ok
+    source: office_sample_summary.csv#sample_id=62 − truth_runs/extra_truth.csv#job_id=EX13
+    base_sample_id: 62
+    base_channel: annual_cooling_input_kwh
+  scoring:
+    target: cooling_input_saving
+    correct_pct: 10
+    acceptable_pct: 25
+    abs_floor_correct_kwh: 1000
+    abs_floor_acceptable_kwh: 2500
+  expected_gate: trust
+  change:
+    param: cooling_setpoint_c
+    from: 25.0
+    to: 26.0
+- id: T2-X01
+  tier: edge
+  qtype: scenario
+  ood_axis: design_mild
+  question_zh: 南京一栋 15 层高层办公楼（约 19440 m²）建成已约 20 年，近期实测围护气密性明显退化，渗透率约 0.95 ACH。其余参数：外墙保温 90 mm，屋面保温 65 mm，外窗传热系数
+    U=5.35 W/(m²·K)，太阳得热系数 SHGC=0.52，窗墙比 0.56，空调供冷/供暖设定点 27/17.5 °C，供冷系统 COP 5、供暖系统 COP 3.6。按南京典型气象年，这栋楼目前全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.09
+    roof_insulation_m: 0.065
+    window_u_w_m2k: 5.35
+    window_shgc: 0.52
+    infiltration_ach: 0.95
+    window_wall_ratio: 0.56
+    cooling_setpoint_c: 27.0
+    heating_setpoint_c: 17.5
+    cooling_cop: 5.0
+    heating_cop: 3.6
+  truth:
+    value: 291693.0
+    unit: kWh
+    source: truth_runs/extra_truth.csv#job_id=EX14
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: transition
+- id: T3-P01
+  tier: ood
+  qtype: point
+  ood_axis: design_severe
+  question_zh: 位于南京的一栋约 19440 m² 高层办公建筑（15 层），按典型气象年估算。围护与系统参数：外墙保温 11 mm，屋面保温 8 mm，外窗传热系数 U=7.75 W/(m²·K)，太阳得热系数
+    SHGC=0.76，渗透率 1 ACH，窗墙比 0.78，空调供冷/供暖设定点 31/12 °C，供冷系统 COP 4.6、供暖系统 COP 2.9。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.011
+    roof_insulation_m: 0.008
+    window_u_w_m2k: 7.75
+    window_shgc: 0.76
+    infiltration_ach: 1.0
+    window_wall_ratio: 0.78
+    cooling_setpoint_c: 31.0
+    heating_setpoint_c: 12.0
+    cooling_cop: 4.6
+    heating_cop: 2.9
+  truth:
+    value: 227574.7
+    unit: kWh
+    source: office_ood_dataset.csv#sample_id=100023
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: fallback
+- id: T3-P02
+  tier: ood
+  qtype: point
+  ood_axis: design_severe
+  question_zh: 南京一栋 15 层高层办公楼（总建筑面积约 19440 m²，标准层 36 m × 36 m），按南京典型气象年评估。围护与系统参数：外墙保温 7 mm，屋面保温 8 mm，外窗传热系数 U=7.25
+    W/(m²·K)，太阳得热系数 SHGC=0.8，渗透率 1.75 ACH，窗墙比 0.84，空调供冷/供暖设定点 29.5/15 °C，供冷系统 COP 5.4、供暖系统 COP 2。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.007
+    roof_insulation_m: 0.008
+    window_u_w_m2k: 7.25
+    window_shgc: 0.8
+    infiltration_ach: 1.75
+    window_wall_ratio: 0.84
+    cooling_setpoint_c: 29.5
+    heating_setpoint_c: 15.0
+    cooling_cop: 5.4
+    heating_cop: 2.0
+  truth:
+    value: 414490.3
+    unit: kWh
+    source: office_ood_dataset.csv#sample_id=100083
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: fallback
+- id: T3-P03
+  tier: ood
+  qtype: point
+  ood_axis: design_severe
+  question_zh: 我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。围护与系统参数：外墙保温 9 mm，屋面保温 6 mm，外窗传热系数 U=6.5 W/(m²·K)，太阳得热系数
+    SHGC=0.62，渗透率 1.7 ACH，窗墙比 0.72，空调供冷/供暖设定点 30/12.5 °C，供冷系统 COP 3.1、供暖系统 COP 3.5。请问全年供暖输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.009
+    roof_insulation_m: 0.006
+    window_u_w_m2k: 6.5
+    window_shgc: 0.62
+    infiltration_ach: 1.7
+    window_wall_ratio: 0.72
+    cooling_setpoint_c: 30.0
+    heating_setpoint_c: 12.5
+    cooling_cop: 3.1
+    heating_cop: 3.5
+  truth:
+    value: 119398.2
+    unit: kWh
+    source: office_ood_dataset.csv#sample_id=100015
+    status: ok
+  scoring:
+    target: heating_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: fallback
+- id: T3-P04
+  tier: ood
+  qtype: point
+  ood_axis: design_severe
+  question_zh: 某设计院正在评估南京一栋高层办公方案（15 层、约 19440 m²），气象按南京典型年。围护与系统参数：外墙保温 8 mm，屋面保温 11 mm，外窗传热系数 U=7.55 W/(m²·K)，太阳得热系数
+    SHGC=0.7，渗透率 1.55 ACH，窗墙比 0.84，空调供冷/供暖设定点 32/14 °C，供冷系统 COP 5.9、供暖系统 COP 3.6。请问全年供冷输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.008
+    roof_insulation_m: 0.011
+    window_u_w_m2k: 7.55
+    window_shgc: 0.7
+    infiltration_ach: 1.55
+    window_wall_ratio: 0.84
+    cooling_setpoint_c: 32.0
+    heating_setpoint_c: 14.0
+    cooling_cop: 5.9
+    heating_cop: 3.6
+  truth:
+    value: 93392.3
+    unit: kWh
+    source: office_ood_dataset.csv#sample_id=100047
+    status: ok
+  scoring:
+    target: cooling_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: fallback
+- id: T3-P05
+  tier: ood
+  qtype: point
+  ood_axis: design_severe
+  question_zh: 位于南京的一栋约 19440 m² 高层办公建筑（15 层），按典型气象年估算。围护与系统参数：外墙保温 16 mm，屋面保温 12 mm，外窗传热系数 U=6.95 W/(m²·K)，太阳得热系数
+    SHGC=0.78，渗透率 1.45 ACH，窗墙比 0.72，空调供冷/供暖设定点 30.5/13.5 °C，供冷系统 COP 4、供暖系统 COP 2.6。请问全年空调总电耗（供冷+供暖输入电耗合计，kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.016
+    roof_insulation_m: 0.012
+    window_u_w_m2k: 6.95
+    window_shgc: 0.78
+    infiltration_ach: 1.45
+    window_wall_ratio: 0.72
+    cooling_setpoint_c: 30.5
+    heating_setpoint_c: 13.5
+    cooling_cop: 4.0
+    heating_cop: 2.6
+  truth:
+    value: 312734.3
+    unit: kWh
+    source: office_ood_dataset.csv#sample_id=100096
+    status: ok
+  scoring:
+    target: total_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: fallback
+- id: T3-C01
+  tier: ood
+  qtype: compare
+  ood_axis: design_severe
+  question_zh: '南京一栋 15 层高层办公楼（总建筑面积约 19440 m²，标准层 36 m × 36 m），按南京典型气象年评估。现有两个候选方案。
+
+    方案 A：外墙保温 17 mm，屋面保温 8 mm，外窗传热系数 U=7.4 W/(m²·K)，太阳得热系数 SHGC=0.72，渗透率 1.3 ACH，窗墙比 0.84，空调供冷/供暖设定点 29.5/12 °C，供冷系统
+    COP 3.7、供暖系统 COP 3.1。
+
+    方案 B：外墙保温 100 mm，屋面保温 65 mm，外窗传热系数 U=4.45 W/(m²·K)，太阳得热系数 SHGC=0.5，渗透率 0.62 ACH，窗墙比 0.5，空调供冷/供暖设定点 25/19.5 °C，供冷系统
+    COP 5.8、供暖系统 COP 2.1。
+
+    哪个方案全年空调总电耗（供冷+供暖输入电耗）更低？大约低多少 kWh？'
+  params: null
+  truth:
+    value: 31296.9
+    unit: kWh
+    choice: B
+    source: office_ood_dataset.csv#sample_id=100009 vs office_sample_summary.csv#sample_id=329
+    status: ok
+  scoring:
+    target: input_diff
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: fallback
+  params_a:
+    wall_insulation_m: 0.017
+    roof_insulation_m: 0.008
+    window_u_w_m2k: 7.4
+    window_shgc: 0.72
+    infiltration_ach: 1.3
+    window_wall_ratio: 0.84
+    cooling_setpoint_c: 29.5
+    heating_setpoint_c: 12.0
+    cooling_cop: 3.7
+    heating_cop: 3.1
+  params_b:
+    wall_insulation_m: 0.1
+    roof_insulation_m: 0.065
+    window_u_w_m2k: 4.45
+    window_shgc: 0.5
+    infiltration_ach: 0.62
+    window_wall_ratio: 0.5
+    cooling_setpoint_c: 25.0
+    heating_setpoint_c: 19.5
+    cooling_cop: 5.8
+    heating_cop: 2.1
+- id: T3-C02
+  tier: ood
+  qtype: compare
+  ood_axis: design_severe
+  question_zh: '我们在南京运营一栋约 19440 m² 的高层办公楼（15 层），按当地典型气象年考虑。现有两个候选方案。
+
+    方案 A：外墙保温 12 mm，屋面保温 15 mm，外窗传热系数 U=7.75 W/(m²·K)，太阳得热系数 SHGC=0.6，渗透率 1.7 ACH，窗墙比 0.68，空调供冷/供暖设定点 32/14.5 °C，供冷系统
+    COP 5.1、供暖系统 COP 3.7。
+
+    方案 B：外墙保温 55 mm，屋面保温 130 mm，外窗传热系数 U=3.3 W/(m²·K)，太阳得热系数 SHGC=0.4，渗透率 0.72 ACH，窗墙比 0.32，空调供冷/供暖设定点 26/16.5 °C，供冷系统
+    COP 3.5、供暖系统 COP 3.3。
+
+    哪个方案全年空调总电耗（供冷+供暖输入电耗）更低？大约低多少 kWh？'
+  params: null
+  truth:
+    value: 144884.3
+    unit: kWh
+    choice: A
+    source: office_ood_dataset.csv#sample_id=100092 vs office_sample_summary.csv#sample_id=556
+    status: ok
+  scoring:
+    target: input_diff
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: fallback
+  params_a:
+    wall_insulation_m: 0.012
+    roof_insulation_m: 0.015
+    window_u_w_m2k: 7.75
+    window_shgc: 0.6
+    infiltration_ach: 1.7
+    window_wall_ratio: 0.68
+    cooling_setpoint_c: 32.0
+    heating_setpoint_c: 14.5
+    cooling_cop: 5.1
+    heating_cop: 3.7
+  params_b:
+    wall_insulation_m: 0.055
+    roof_insulation_m: 0.13
+    window_u_w_m2k: 3.3
+    window_shgc: 0.4
+    infiltration_ach: 0.72
+    window_wall_ratio: 0.32
+    cooling_setpoint_c: 26.0
+    heating_setpoint_c: 16.5
+    cooling_cop: 3.5
+    heating_cop: 3.3
+- id: T3-X01
+  tier: ood
+  qtype: scenario
+  ood_axis: anom_year
+  question_zh: 南京一栋 15 层高层办公楼（约 19440 m²），参数：外墙保温 25 mm，屋面保温 70 mm，外窗传热系数 U=3.6 W/(m²·K)，太阳得热系数 SHGC=0.44，渗透率 0.64
+    ACH，窗墙比 0.58，空调供冷/供暖设定点 26/20 °C，供冷系统 COP 5.4、供暖系统 COP 2.1。假设明年是一个异常气候年：年平均气温较典型年基本持平（约 -0.14 °C），但夏季出现峰值约 +9.4
+    °C 的持续热浪、冬季出现约 -10.7 °C 的强冷潮（全年约 25 天日均温超出典型年最高日均、约 5 天低于最低日均）。这种年份下，这栋楼全年供冷输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.025
+    roof_insulation_m: 0.07
+    window_u_w_m2k: 3.6
+    window_shgc: 0.44
+    infiltration_ach: 0.64
+    window_wall_ratio: 0.58
+    cooling_setpoint_c: 26.0
+    heating_setpoint_c: 20.0
+    cooling_cop: 5.4
+    heating_cop: 2.1
+  truth:
+    value: 264092.0
+    unit: kWh
+    source: office_weather_ood_truth.csv#scenario=anom_balanced,building_idx=3（负荷/COP=5.4）
+    status: ok
+  scoring:
+    target: cooling_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: fallback
+  scenario: anom_balanced
+- id: T3-X02
+  tier: ood
+  qtype: scenario
+  ood_axis: anom_year
+  question_zh: 南京一栋 15 层高层办公楼（约 19440 m²），参数：外墙保温 35 mm，屋面保温 20 mm，外窗传热系数 U=2.4 W/(m²·K)，太阳得热系数 SHGC=0.54，渗透率 0.52
+    ACH，窗墙比 0.48，空调供冷/供暖设定点 27.5/17.5 °C，供冷系统 COP 3.9、供暖系统 COP 2.6。假设明年是一个异常气候年：年平均气温较典型年高约 3.3 °C，但夏季出现峰值约 +11.3
+    °C 的持续热浪、冬季出现约 -3.4 °C 的强冷潮（全年约 66 天日均温超出典型年最高日均、约 0 天低于最低日均）。这种年份下，这栋楼全年供冷输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.035
+    roof_insulation_m: 0.02
+    window_u_w_m2k: 2.4
+    window_shgc: 0.54
+    infiltration_ach: 0.52
+    window_wall_ratio: 0.48
+    cooling_setpoint_c: 27.5
+    heating_setpoint_c: 17.5
+    cooling_cop: 3.9
+    heating_cop: 2.6
+  truth:
+    value: 494063.5
+    unit: kWh
+    source: office_weather_ood_truth.csv#scenario=anom_warm,building_idx=11（负荷/COP=3.9）
+    status: ok
+  scoring:
+    target: cooling_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: fallback
+  scenario: anom_warm
+- id: T3-X03
+  tier: ood
+  qtype: scenario
+  ood_axis: anom_year
+  question_zh: 南京一栋 15 层高层办公楼（约 19440 m²），参数：外墙保温 115 mm，屋面保温 60 mm，外窗传热系数 U=4.45 W/(m²·K)，太阳得热系数 SHGC=0.4，渗透率 0.5
+    ACH，窗墙比 0.56，空调供冷/供暖设定点 25/19.5 °C，供冷系统 COP 3.2、供暖系统 COP 3.5。假设明年是一个异常气候年：年平均气温较典型年低约 3.4 °C，但夏季出现峰值约 +6.2 °C
+    的持续热浪、冬季出现约 -11.4 °C 的强冷潮（全年约 15 天日均温超出典型年最高日均、约 11 天低于最低日均）。这种年份下，这栋楼全年供暖输入电耗（kWh）大约是多少？
+  params:
+    wall_insulation_m: 0.115
+    roof_insulation_m: 0.06
+    window_u_w_m2k: 4.45
+    window_shgc: 0.4
+    infiltration_ach: 0.5
+    window_wall_ratio: 0.56
+    cooling_setpoint_c: 25.0
+    heating_setpoint_c: 19.5
+    cooling_cop: 3.2
+    heating_cop: 3.5
+  truth:
+    value: 72756.4
+    unit: kWh
+    source: office_weather_ood_truth.csv#scenario=anom_cold,building_idx=17（负荷/COP=3.5）
+    status: ok
+  scoring:
+    target: heating_input
+    correct_pct: 10
+    acceptable_pct: 25
+  expected_gate: fallback
+  scenario: anom_cold

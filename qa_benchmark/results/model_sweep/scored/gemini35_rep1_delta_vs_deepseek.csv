@@ -1,0 +1,10 @@
+﻿model_alias,model,framework,tier,n,correct,acceptable,hallucination,honest_uncertain,needs_review,hallucination_rate,honest_rate,correct_or_acceptable_rate,median_rel_err,median_wall_s,deepseek_usable_rate,deepseek_median_rel_err,deepseek_median_wall_s,delta_usable_rate,delta_median_rel_err,delta_median_wall_s
+gemini_3_5_flash,gemini-3.5-flash,llm_only,in_dist,20,0,0,0,20,0,0.0,1.0,0.0,0.549,4.95,0.0,1.9126,3.7,0.0,-1.3636,1.25
+gemini_3_5_flash,gemini-3.5-flash,llm_only,edge,15,0,0,0,15,0,0.0,1.0,0.0,0.8611,4.98,0.0,1.9805,4.35,0.0,-1.1194,0.63
+gemini_3_5_flash,gemini-3.5-flash,llm_only,ood,10,0,0,1,9,0,0.1,0.9,0.0,0.7412,5.48,0.0,2.6373,3.98,0.0,-1.8961,1.5
+gemini_3_5_flash,gemini-3.5-flash,llm_rag,in_dist,20,10,3,3,4,0,0.15,0.2,0.65,0.0584,6.33,0.0,0.166,4.45,0.65,-0.1076,1.88
+gemini_3_5_flash,gemini-3.5-flash,llm_rag,edge,15,7,1,1,6,0,0.067,0.4,0.533,0.0813,6.25,0.0,0.1254,4.58,0.533,-0.0441,1.67
+gemini_3_5_flash,gemini-3.5-flash,llm_rag,ood,10,0,0,0,10,0,0.0,1.0,0.0,0.4108,5.23,0.0,0.6491,4.18,0.0,-0.2383,1.05
+gemini_3_5_flash,gemini-3.5-flash,pag,in_dist,20,19,0,1,0,0,0.05,0.0,0.95,0.0145,7.43,0.95,0.0145,5.58,0.0,0.0,1.85
+gemini_3_5_flash,gemini-3.5-flash,pag,edge,15,14,1,0,0,0,0.0,0.0,1.0,0.005,9.57,1.0,0.0206,7.32,0.0,-0.0156,2.25
+gemini_3_5_flash,gemini-3.5-flash,pag,ood,10,9,1,0,0,0,0.0,0.0,1.0,0.0,9.62,1.0,0.0,41.36,0.0,0.0,-31.74

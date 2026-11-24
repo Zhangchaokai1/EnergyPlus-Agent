@@ -1,0 +1,10 @@
+﻿model_alias,model,framework,tier,n,correct,acceptable,hallucination,honest_uncertain,needs_review,hallucination_rate,honest_rate,correct_or_acceptable_rate,median_rel_err,median_wall_s,deepseek_usable_rate,deepseek_median_rel_err,deepseek_median_wall_s,delta_usable_rate,delta_median_rel_err,delta_median_wall_s
+qwen3_7_plus,qwen3.7-plus,llm_only,in_dist,20,0,0,0,20,0,0.0,1.0,0.0,4.6983,16.05,0.0,1.9126,3.7,0.0,2.7857,12.35
+qwen3_7_plus,qwen3.7-plus,llm_only,edge,15,0,0,0,15,0,0.0,1.0,0.0,2.2982,18.39,0.0,1.9805,4.35,0.0,0.3177,14.04
+qwen3_7_plus,qwen3.7-plus,llm_only,ood,10,0,0,0,10,0,0.0,1.0,0.0,4.0533,21.06,0.0,2.6373,3.98,0.0,1.416,17.08
+qwen3_7_plus,qwen3.7-plus,llm_rag,in_dist,20,0,0,0,20,0,0.0,1.0,0.0,0.1436,22.11,0.0,0.166,4.45,0.0,-0.0224,17.66
+qwen3_7_plus,qwen3.7-plus,llm_rag,edge,15,0,0,1,14,0,0.067,0.933,0.0,0.0886,39.05,0.0,0.1254,4.58,0.0,-0.0368,34.47
+qwen3_7_plus,qwen3.7-plus,llm_rag,ood,10,0,0,0,10,0,0.0,1.0,0.0,0.6484,28.98,0.0,0.6491,4.18,0.0,-0.0007,24.8
+qwen3_7_plus,qwen3.7-plus,pag,in_dist,20,18,0,2,0,0,0.1,0.0,0.9,0.0145,15.27,0.95,0.0145,5.58,-0.05,0.0,9.69
+qwen3_7_plus,qwen3.7-plus,pag,edge,15,14,1,0,0,0,0.0,0.0,1.0,0.0206,16.63,1.0,0.0206,7.32,0.0,0.0,9.31
+qwen3_7_plus,qwen3.7-plus,pag,ood,10,9,1,0,0,0,0.0,0.0,1.0,0.0,25.87,1.0,0.0,41.36,0.0,0.0,-15.49

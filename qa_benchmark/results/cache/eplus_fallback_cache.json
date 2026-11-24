@@ -1,0 +1,839 @@
+{
+ "034cbf83e1a464e35157112264705a85": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 32.2,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.011,
+    "roof_insulation_m": 0.008,
+    "window_u_w_m2k": 7.75,
+    "window_shgc": 0.76,
+    "infiltration_ach": 1.0,
+    "window_wall_ratio": 0.78,
+    "cooling_setpoint_c": 31.0,
+    "heating_setpoint_c": 12.0,
+    "cooling_cop": 4.6,
+    "heating_cop": 2.9
+   },
+   "annual": {
+    "heatingLoadKwh": 161450.8,
+    "coolingLoadKwh": 790749.3,
+    "heatingInputKwh": 55672.7,
+    "coolingInputKwh": 171902.0,
+    "totalInputKwh": 227574.7,
+    "discomfortHours": 1485.93
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 58.35
+   }
+  },
+  "first_runtime_s": 32.2,
+  "ts": "2026-07-02 16:33:50"
+ },
+ "a5d0a7f33f853ae082eae5a593057a15": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 30.74,
+   "climateScenario": "anom_balanced",
+   "design": {
+    "wall_insulation_m": 0.025,
+    "roof_insulation_m": 0.07,
+    "window_u_w_m2k": 3.6,
+    "window_shgc": 0.44,
+    "infiltration_ach": 0.64,
+    "window_wall_ratio": 0.58,
+    "cooling_setpoint_c": 26.0,
+    "heating_setpoint_c": 20.0,
+    "cooling_cop": 5.4,
+    "heating_cop": 2.1
+   },
+   "annual": {
+    "heatingLoadKwh": 196765.2,
+    "coolingLoadKwh": 1426096.6,
+    "heatingInputKwh": 93697.7,
+    "coolingInputKwh": 264092.0,
+    "totalInputKwh": 357789.7,
+    "discomfortHours": 21.16
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 34.51
+   }
+  },
+  "first_runtime_s": 30.74,
+  "ts": "2026-07-02 16:35:20"
+ },
+ "be774075d69f95a4e0fe225bf70a83e7": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 32.52,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.025,
+    "roof_insulation_m": 0.125,
+    "window_u_w_m2k": 5.55,
+    "window_shgc": 0.4,
+    "infiltration_ach": 0.46,
+    "window_wall_ratio": 0.46,
+    "cooling_setpoint_c": 25.0,
+    "heating_setpoint_c": 17.5,
+    "cooling_cop": 3.2,
+    "heating_cop": 2.1
+   },
+   "annual": {
+    "heatingLoadKwh": 56625.9,
+    "coolingLoadKwh": 1376770.5,
+    "heatingInputKwh": 26964.7,
+    "coolingInputKwh": 430240.8,
+    "totalInputKwh": 457205.5,
+    "discomfortHours": 54.2
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 16.31
+   }
+  },
+  "first_runtime_s": 32.52,
+  "ts": "2026-07-02 17:49:52"
+ },
+ "2e2ae824af96df8a4685c7824b4a06c5": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 31.05,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.115,
+    "roof_insulation_m": 0.045,
+    "window_u_w_m2k": 1.45,
+    "window_shgc": 0.3,
+    "infiltration_ach": 0.46,
+    "window_wall_ratio": 0.4,
+    "cooling_setpoint_c": 24.5,
+    "heating_setpoint_c": 16.5,
+    "cooling_cop": 3.2,
+    "heating_cop": 3.7
+   },
+   "annual": {
+    "heatingLoadKwh": 3089.7,
+    "coolingLoadKwh": 1523852.0,
+    "heatingInputKwh": 835.0,
+    "coolingInputKwh": 476203.8,
+    "totalInputKwh": 477038.8,
+    "discomfortHours": 12.02
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 12.68
+   }
+  },
+  "first_runtime_s": 31.05,
+  "ts": "2026-07-02 17:52:08"
+ },
+ "6e2cc6b70ca79f2c2b6cd2eb9a93774c": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 30.64,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.07,
+    "roof_insulation_m": 0.11,
+    "window_u_w_m2k": 1.7,
+    "window_shgc": 0.4,
+    "infiltration_ach": 0.64,
+    "window_wall_ratio": 0.46,
+    "cooling_setpoint_c": 24.0,
+    "heating_setpoint_c": 16.0,
+    "cooling_cop": 3.1,
+    "heating_cop": 3.9
+   },
+   "annual": {
+    "heatingLoadKwh": 10162.8,
+    "coolingLoadKwh": 1657090.7,
+    "heatingInputKwh": 2605.9,
+    "coolingInputKwh": 534545.4,
+    "totalInputKwh": 537151.2,
+    "discomfortHours": 43.61
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 1.68
+   }
+  },
+  "first_runtime_s": 30.64,
+  "ts": "2026-07-02 17:53:15"
+ },
+ "e8398955e773a7c9ed719bb35bf76374": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 31.73,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.05,
+    "roof_insulation_m": 0.135,
+    "window_u_w_m2k": 1.7,
+    "window_shgc": 0.48,
+    "infiltration_ach": 0.32,
+    "window_wall_ratio": 0.6,
+    "cooling_setpoint_c": 28.0,
+    "heating_setpoint_c": 19.5,
+    "cooling_cop": 3.2,
+    "heating_cop": 2.6
+   },
+   "annual": {
+    "heatingLoadKwh": 2445.6,
+    "coolingLoadKwh": 1526720.2,
+    "heatingInputKwh": 940.6,
+    "coolingInputKwh": 477100.1,
+    "totalInputKwh": 478040.7,
+    "discomfortHours": 811.29
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 12.5
+   }
+  },
+  "first_runtime_s": 31.73,
+  "ts": "2026-07-02 17:53:57"
+ },
+ "fc4d6919593d0ad9281156fa9a7f5fe6": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 30.07,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.08,
+    "roof_insulation_m": 0.115,
+    "window_u_w_m2k": 4.0,
+    "window_shgc": 0.3,
+    "infiltration_ach": 0.8,
+    "window_wall_ratio": 0.32,
+    "cooling_setpoint_c": 24.5,
+    "heating_setpoint_c": 20.0,
+    "cooling_cop": 5.9,
+    "heating_cop": 3.4
+   },
+   "annual": {
+    "heatingLoadKwh": 190721.6,
+    "coolingLoadKwh": 1367962.7,
+    "heatingInputKwh": 56094.6,
+    "coolingInputKwh": 231858.1,
+    "totalInputKwh": 287952.7,
+    "discomfortHours": 0.43
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 47.29
+   }
+  },
+  "first_runtime_s": 30.07,
+  "ts": "2026-07-02 17:54:42"
+ },
+ "82ef1167facc1c64a59fa03c00dfc5df": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 31.36,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.09,
+    "roof_insulation_m": 0.125,
+    "window_u_w_m2k": 2.05,
+    "window_shgc": 0.52,
+    "infiltration_ach": 0.38,
+    "window_wall_ratio": 0.6,
+    "cooling_setpoint_c": 25.0,
+    "heating_setpoint_c": 16.0,
+    "cooling_cop": 3.1,
+    "heating_cop": 2.8
+   },
+   "annual": {
+    "heatingLoadKwh": 494.2,
+    "coolingLoadKwh": 1869293.9,
+    "heatingInputKwh": 176.5,
+    "coolingInputKwh": 602998.0,
+    "totalInputKwh": 603174.5,
+    "discomfortHours": 9.18
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": -10.4
+   }
+  },
+  "first_runtime_s": 31.36,
+  "ts": "2026-07-02 17:55:29"
+ },
+ "682c45264b9d15f54bbc6494b959aecf": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 30.9,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.09,
+    "roof_insulation_m": 0.125,
+    "window_u_w_m2k": 2.05,
+    "window_shgc": 0.52,
+    "infiltration_ach": 0.38,
+    "window_wall_ratio": 0.6,
+    "cooling_setpoint_c": 26.0,
+    "heating_setpoint_c": 16.0,
+    "cooling_cop": 3.1,
+    "heating_cop": 2.8
+   },
+   "annual": {
+    "heatingLoadKwh": 466.7,
+    "coolingLoadKwh": 1741069.5,
+    "heatingInputKwh": 166.7,
+    "coolingInputKwh": 561635.3,
+    "totalInputKwh": 561802.0,
+    "discomfortHours": 52.27
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": -2.83
+   }
+  },
+  "first_runtime_s": 30.9,
+  "ts": "2026-07-02 17:56:00"
+ },
+ "2f0c93d2f49030f9c5550aeba9cf4974": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 31.47,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.09,
+    "roof_insulation_m": 0.065,
+    "window_u_w_m2k": 5.35,
+    "window_shgc": 0.52,
+    "infiltration_ach": 0.95,
+    "window_wall_ratio": 0.56,
+    "cooling_setpoint_c": 27.0,
+    "heating_setpoint_c": 17.5,
+    "cooling_cop": 5.0,
+    "heating_cop": 3.6
+   },
+   "annual": {
+    "heatingLoadKwh": 168888.4,
+    "coolingLoadKwh": 1223897.5,
+    "heatingInputKwh": 46913.5,
+    "coolingInputKwh": 244779.5,
+    "totalInputKwh": 291693.0,
+    "discomfortHours": 179.19
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 46.61
+   }
+  },
+  "first_runtime_s": 31.47,
+  "ts": "2026-07-02 17:56:40"
+ },
+ "2b75940454a5582c83767cd62c6d5461": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 31.5,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.007,
+    "roof_insulation_m": 0.008,
+    "window_u_w_m2k": 7.25,
+    "window_shgc": 0.8,
+    "infiltration_ach": 1.75,
+    "window_wall_ratio": 0.84,
+    "cooling_setpoint_c": 29.5,
+    "heating_setpoint_c": 15.0,
+    "cooling_cop": 5.4,
+    "heating_cop": 2.0
+   },
+   "annual": {
+    "heatingLoadKwh": 466972.4,
+    "coolingLoadKwh": 977422.2,
+    "heatingInputKwh": 233486.2,
+    "coolingInputKwh": 181004.1,
+    "totalInputKwh": 414490.3,
+    "discomfortHours": 1409.49
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 24.13
+   }
+  },
+  "first_runtime_s": 31.5,
+  "ts": "2026-07-02 17:57:29"
+ },
+ "a39a5b27e768c9b653b666c182de1ff4": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 31.11,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.009,
+    "roof_insulation_m": 0.006,
+    "window_u_w_m2k": 6.5,
+    "window_shgc": 0.62,
+    "infiltration_ach": 1.7,
+    "window_wall_ratio": 0.72,
+    "cooling_setpoint_c": 30.0,
+    "heating_setpoint_c": 12.5,
+    "cooling_cop": 3.1,
+    "heating_cop": 3.5
+   },
+   "annual": {
+    "heatingLoadKwh": 417893.6,
+    "coolingLoadKwh": 778177.3,
+    "heatingInputKwh": 119398.2,
+    "coolingInputKwh": 251024.9,
+    "totalInputKwh": 370423.1,
+    "discomfortHours": 1440.84
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 32.2
+   }
+  },
+  "first_runtime_s": 31.11,
+  "ts": "2026-07-02 17:58:11"
+ },
+ "b4f74461849b477b8720afcfa5bbde85": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 32.27,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.008,
+    "roof_insulation_m": 0.011,
+    "window_u_w_m2k": 7.55,
+    "window_shgc": 0.7,
+    "infiltration_ach": 1.55,
+    "window_wall_ratio": 0.84,
+    "cooling_setpoint_c": 32.0,
+    "heating_setpoint_c": 14.0,
+    "cooling_cop": 5.9,
+    "heating_cop": 3.6
+   },
+   "annual": {
+    "heatingLoadKwh": 375857.9,
+    "coolingLoadKwh": 551014.6,
+    "heatingInputKwh": 104405.0,
+    "coolingInputKwh": 93392.3,
+    "totalInputKwh": 197797.3,
+    "discomfortHours": 1498.65
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 63.8
+   }
+  },
+  "first_runtime_s": 32.27,
+  "ts": "2026-07-02 17:58:53"
+ },
+ "dfd362516f121fc352a07d6392eeec17": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 31.57,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.016,
+    "roof_insulation_m": 0.012,
+    "window_u_w_m2k": 6.95,
+    "window_shgc": 0.78,
+    "infiltration_ach": 1.45,
+    "window_wall_ratio": 0.72,
+    "cooling_setpoint_c": 30.5,
+    "heating_setpoint_c": 13.5,
+    "cooling_cop": 4.0,
+    "heating_cop": 2.6
+   },
+   "annual": {
+    "heatingLoadKwh": 288133.7,
+    "coolingLoadKwh": 807654.4,
+    "heatingInputKwh": 110820.6,
+    "coolingInputKwh": 201913.6,
+    "totalInputKwh": 312734.3,
+    "discomfortHours": 1490.08
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 42.76
+   }
+  },
+  "first_runtime_s": 31.57,
+  "ts": "2026-07-02 17:59:34"
+ },
+ "ba936ec635eb7ded7800af606aab58b4": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 31.83,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.017,
+    "roof_insulation_m": 0.008,
+    "window_u_w_m2k": 7.4,
+    "window_shgc": 0.72,
+    "infiltration_ach": 1.3,
+    "window_wall_ratio": 0.84,
+    "cooling_setpoint_c": 29.5,
+    "heating_setpoint_c": 12.0,
+    "cooling_cop": 3.7,
+    "heating_cop": 3.1
+   },
+   "annual": {
+    "heatingLoadKwh": 246591.8,
+    "coolingLoadKwh": 963164.4,
+    "heatingInputKwh": 79545.8,
+    "coolingInputKwh": 260314.7,
+    "totalInputKwh": 339860.5,
+    "discomfortHours": 1396.48
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 37.79
+   }
+  },
+  "first_runtime_s": 31.83,
+  "ts": "2026-07-02 18:00:18"
+ },
+ "a5a42dbe7b1026f4f7cd253d00963e72": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 31.04,
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.012,
+    "roof_insulation_m": 0.015,
+    "window_u_w_m2k": 7.75,
+    "window_shgc": 0.6,
+    "infiltration_ach": 1.7,
+    "window_wall_ratio": 0.68,
+    "cooling_setpoint_c": 32.0,
+    "heating_setpoint_c": 14.5,
+    "cooling_cop": 5.1,
+    "heating_cop": 3.7
+   },
+   "annual": {
+    "heatingLoadKwh": 471043.6,
+    "coolingLoadKwh": 469576.4,
+    "heatingInputKwh": 127309.1,
+    "coolingInputKwh": 92073.8,
+    "totalInputKwh": 219382.9,
+    "discomfortHours": 1467.06
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 59.84
+   }
+  },
+  "first_runtime_s": 31.04,
+  "ts": "2026-07-02 18:01:02"
+ },
+ "08133b1f3c9302da0bbc773d01d8931f": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 30.84,
+   "climateScenario": "anom_warm",
+   "design": {
+    "wall_insulation_m": 0.035,
+    "roof_insulation_m": 0.02,
+    "window_u_w_m2k": 2.4,
+    "window_shgc": 0.54,
+    "infiltration_ach": 0.52,
+    "window_wall_ratio": 0.48,
+    "cooling_setpoint_c": 27.5,
+    "heating_setpoint_c": 17.5,
+    "cooling_cop": 3.9,
+    "heating_cop": 2.6
+   },
+   "annual": {
+    "heatingLoadKwh": 12786.9,
+    "coolingLoadKwh": 1926847.8,
+    "heatingInputKwh": 4918.1,
+    "coolingInputKwh": 494063.5,
+    "totalInputKwh": 498981.6,
+    "discomfortHours": 561.71
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 8.67
+   }
+  },
+  "first_runtime_s": 30.84,
+  "ts": "2026-07-02 18:01:51"
+ },
+ "7c146f3abbf0c4338fdfdd62789ddc6c": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 31.01,
+   "climateScenario": "anom_cold",
+   "design": {
+    "wall_insulation_m": 0.115,
+    "roof_insulation_m": 0.06,
+    "window_u_w_m2k": 4.45,
+    "window_shgc": 0.4,
+    "infiltration_ach": 0.5,
+    "window_wall_ratio": 0.56,
+    "cooling_setpoint_c": 25.0,
+    "heating_setpoint_c": 19.5,
+    "cooling_cop": 3.2,
+    "heating_cop": 3.5
+   },
+   "annual": {
+    "heatingLoadKwh": 254647.5,
+    "coolingLoadKwh": 1250378.7,
+    "heatingInputKwh": 72756.4,
+    "coolingInputKwh": 390743.3,
+    "totalInputKwh": 463499.8,
+    "discomfortHours": 54.24
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 15.16
+   }
+  },
+  "first_runtime_s": 31.01,
+  "ts": "2026-07-02 18:02:34"
+ },
+ "5163daa73a2683e8c6c063d8dbf51d33": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 30.94,
+   "climateScenario": "anom_balanced",
+   "design": {
+    "wall_insulation_m": 0.115,
+    "roof_insulation_m": 0.06,
+    "window_u_w_m2k": 4.45,
+    "window_shgc": 0.4,
+    "infiltration_ach": 0.5,
+    "window_wall_ratio": 0.56,
+    "cooling_setpoint_c": 25.0,
+    "heating_setpoint_c": 19.5,
+    "cooling_cop": 3.2,
+    "heating_cop": 3.5
+   },
+   "annual": {
+    "heatingLoadKwh": 120142.5,
+    "coolingLoadKwh": 1543958.5,
+    "heatingInputKwh": 34326.4,
+    "coolingInputKwh": 482487.0,
+    "totalInputKwh": 516813.5,
+    "discomfortHours": 6.92
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 5.4
+   }
+  },
+  "first_runtime_s": 30.94,
+  "ts": "2026-07-02 18:03:09"
+ },
+ "3afa062e27f80563a01eb55cc5934607": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 155.35,
+   "modelContext": {
+    "building_id": "default_office",
+    "model_id": "office_hc_deeponet_ensemble",
+    "name": "南京高层办公默认模型",
+    "is_default": true,
+    "status": "ready",
+    "sample_count": null,
+    "weather_file": "Nanjing TMYx 2011-2025"
+   },
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.1,
+    "roof_insulation_m": 0.125,
+    "window_u_w_m2k": 6.0,
+    "window_shgc": 0.32,
+    "infiltration_ach": 0.74,
+    "window_wall_ratio": 0.56,
+    "cooling_setpoint_c": 26.0,
+    "heating_setpoint_c": 19.0,
+    "cooling_cop": 4.6,
+    "heating_cop": 3.7
+   },
+   "annual": {
+    "heatingLoadKwh": 205302.1,
+    "coolingLoadKwh": 1199202.2,
+    "heatingInputKwh": 55487.1,
+    "coolingInputKwh": 260696.1,
+    "totalInputKwh": 316183.2,
+    "discomfortHours": 29.78
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 42.13
+   }
+  },
+  "first_runtime_s": 155.35,
+  "ts": "2026-07-04 20:53:43"
+ },
+ "1c1e39947165e2e8a6702b9200957d3b": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 149.51,
+   "modelContext": {
+    "building_id": "default_office",
+    "model_id": "office_hc_deeponet_ensemble",
+    "name": "南京高层办公默认模型",
+    "is_default": true,
+    "status": "ready",
+    "sample_count": null,
+    "weather_file": "Nanjing TMYx 2011-2025"
+   },
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.035,
+    "roof_insulation_m": 0.07,
+    "window_u_w_m2k": 4.8,
+    "window_shgc": 0.5,
+    "infiltration_ach": 0.9,
+    "window_wall_ratio": 0.38,
+    "cooling_setpoint_c": 27.0,
+    "heating_setpoint_c": 19.5,
+    "cooling_cop": 5.0,
+    "heating_cop": 2.2
+   },
+   "annual": {
+    "heatingLoadKwh": 224723.4,
+    "coolingLoadKwh": 1134842.7,
+    "heatingInputKwh": 102147.0,
+    "coolingInputKwh": 226968.5,
+    "totalInputKwh": 329115.6,
+    "discomfortHours": 32.9
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 39.76
+   }
+  },
+  "first_runtime_s": 149.51,
+  "ts": "2026-07-04 21:11:39"
+ },
+ "9262ac5ac055fece7f31a0845dfe83e2": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 151.38,
+   "modelContext": {
+    "building_id": "default_office",
+    "model_id": "office_hc_deeponet_ensemble",
+    "name": "南京高层办公默认模型",
+    "is_default": true,
+    "status": "ready",
+    "sample_count": null,
+    "weather_file": "Nanjing TMYx 2011-2025"
+   },
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.085,
+    "roof_insulation_m": 0.03,
+    "window_u_w_m2k": 1.7,
+    "window_shgc": 0.48,
+    "infiltration_ach": 0.56,
+    "window_wall_ratio": 0.64,
+    "cooling_setpoint_c": 25.0,
+    "heating_setpoint_c": 17.5,
+    "cooling_cop": 5.0,
+    "heating_cop": 3.5
+   },
+   "annual": {
+    "heatingLoadKwh": 10102.7,
+    "coolingLoadKwh": 1779252.4,
+    "heatingInputKwh": 2886.5,
+    "coolingInputKwh": 355850.5,
+    "totalInputKwh": 358736.9,
+    "discomfortHours": 11.2
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 34.34
+   }
+  },
+  "first_runtime_s": 151.38,
+  "ts": "2026-07-04 21:14:21"
+ },
+ "5ad273bd5a7f1a05b2719ece613caaf7": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 71.91,
+   "modelContext": {
+    "building_id": "default_office",
+    "model_id": "office_hc_deeponet_ensemble",
+    "name": "南京高层办公默认模型",
+    "is_default": true,
+    "status": "ready",
+    "sample_count": null,
+    "weather_file": "Nanjing TMYx 2011-2025"
+   },
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.095,
+    "roof_insulation_m": 0.12,
+    "window_u_w_m2k": 5.35,
+    "window_shgc": 0.58,
+    "infiltration_ach": 0.44,
+    "window_wall_ratio": 0.52,
+    "cooling_setpoint_c": 25.5,
+    "heating_setpoint_c": 16.5,
+    "cooling_cop": 4.0,
+    "heating_cop": 2.8
+   },
+   "annual": {
+    "heatingLoadKwh": 18859.9,
+    "coolingLoadKwh": 1536652.5,
+    "heatingInputKwh": 6735.7,
+    "coolingInputKwh": 384163.1,
+    "totalInputKwh": 390898.8,
+    "discomfortHours": 62.31
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 28.45
+   }
+  },
+  "first_runtime_s": 71.91,
+  "ts": "2026-07-04 21:15:43"
+ },
+ "f10ed13c9238e79d479a296279baa411": {
+  "result": {
+   "source": "EnergyPlus 高保真仿真",
+   "runtimeSeconds": 42.64,
+   "modelContext": {
+    "building_id": "default_office",
+    "model_id": "office_hc_deeponet_ensemble",
+    "name": "南京高层办公默认模型",
+    "is_default": true,
+    "status": "ready",
+    "sample_count": null,
+    "weather_file": "Nanjing TMYx 2011-2025"
+   },
+   "climateScenario": "base",
+   "design": {
+    "wall_insulation_m": 0.11,
+    "roof_insulation_m": 0.07,
+    "window_u_w_m2k": 1.7,
+    "window_shgc": 0.52,
+    "infiltration_ach": 0.34,
+    "window_wall_ratio": 0.44,
+    "cooling_setpoint_c": 25.0,
+    "heating_setpoint_c": 19.5,
+    "cooling_cop": 3.6,
+    "heating_cop": 3.2
+   },
+   "annual": {
+    "heatingLoadKwh": 2049.5,
+    "coolingLoadKwh": 1816772.1,
+    "heatingInputKwh": 640.5,
+    "coolingInputKwh": 504658.9,
+    "totalInputKwh": 505299.4,
+    "discomfortHours": 0.92
+   },
+   "vsBaseline": {
+    "baselineHvacInputKwh": 546336.3,
+    "savingsPct": 7.51
+   }
+  },
+  "first_runtime_s": 42.64,
+  "ts": "2026-07-04 23:30:03"
+ }
+}

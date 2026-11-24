@@ -1,0 +1,17 @@
+frontend/node_modules/
+frontend/dist/
+*.log
+__pycache__/
+.pytest_cache/
+backend/.env
+backend/generated_reports/
+tmp/
+
+# qa_benchmark 内部工作文档（不上传）
+qa_benchmark/实验总结.md
+qa_benchmark/基准实验规划*.md
+qa_benchmark/results/结果报告.md
+qa_benchmark/questions/selection_report.md
+
+# 论文材料（不随仓库发布）
+paper/

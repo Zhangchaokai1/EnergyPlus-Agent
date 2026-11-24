@@ -1,0 +1,10 @@
+﻿Framework,Tier,n,Usable rate (confident & e<=25%),Hallucination,Honest-uncertain,Median |rel. err| of numeric answers
+LLM-only,T1 in-distribution,20,0/20 (0%),0,20,191.3%
+LLM-only,T2 distribution edge,15,0/15 (0%),0,15,198.0%
+LLM-only,T3 OOD,10,0/10 (0%),0,10,263.7%
+LLM-RAG,T1 in-distribution,20,0/20 (0%),0,20,16.6%
+LLM-RAG,T2 distribution edge,15,0/15 (0%),0,15,12.5%
+LLM-RAG,T3 OOD,10,0/10 (0%),0,10,64.9%
+PAG (ours),T1 in-distribution,20,19/20 (95%),1,0,1.4%
+PAG (ours),T2 distribution edge,15,15/15 (100%),0,0,2.1%
+PAG (ours),T3 OOD,10,10/10 (100%),0,0,0.0%

@@ -1,0 +1,4 @@
+﻿model_alias,framework,n_questions,flipped,flip_rate
+deepseek_chat,llm_only,45,0,0.0
+deepseek_chat,llm_rag,45,0,0.0
+deepseek_chat,pag,45,0,0.0

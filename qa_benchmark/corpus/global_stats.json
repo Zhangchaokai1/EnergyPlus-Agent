@@ -1,0 +1,66 @@
+{
+  "n_samples": 716,
+  "weather": "南京典型气象年 TMY（库内无异常气候年数据）",
+  "param_bounds": {
+    "wall_insulation_m": [
+      0.02,
+      0.12
+    ],
+    "roof_insulation_m": [
+      0.02,
+      0.15
+    ],
+    "window_u_w_m2k": [
+      1.4,
+      5.8
+    ],
+    "window_shgc": [
+      0.3,
+      0.55
+    ],
+    "infiltration_ach": [
+      0.3,
+      0.8
+    ],
+    "window_wall_ratio": [
+      0.3,
+      0.6
+    ],
+    "cooling_setpoint_c": [
+      24.0,
+      28.0
+    ],
+    "heating_setpoint_c": [
+      16.0,
+      20.0
+    ],
+    "cooling_cop": [
+      3.0,
+      6.0
+    ],
+    "heating_cop": [
+      1.8,
+      4.0
+    ]
+  },
+  "outputs": {
+    "annual_heating_input_kwh": {
+      "min": 154.2,
+      "median": 13106.2,
+      "mean": 18244.0,
+      "max": 113151.9
+    },
+    "annual_cooling_input_kwh": {
+      "min": 174964.3,
+      "median": 301159.9,
+      "mean": 313146.6,
+      "max": 554720.4
+    },
+    "annual_hvac_input_kwh": {
+      "min": 193070.7,
+      "median": 322273.6,
+      "mean": 331390.6,
+      "max": 557046.0
+    }
+  }
+}
